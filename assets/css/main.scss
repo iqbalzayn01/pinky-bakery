@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+// Variable Styles: Start
+$fontFamily1: 'Playfair Display', serif;
+$fontFamily2: 'Nunito Sans', sans-serif;
+// Variable Styles: End
+
+
+
+// Style Default: Start
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: $fontFamily1;
+}
+
+p {
+    font-family: $fontFamily2;
+}
+// Style Default: Start
+
+
+
+// Navbar: Start
+.navbar {
+    .navbar-brand {
+        font-family: $fontFamily1;
+    }
+
+    .c-navbar {
+        flex-grow: 0;
+        .navbar-nav {
+            .nav-item {
+                .nav-link {
+                    font-family: $fontFamily2;
+                }
+            }
+        }
+    }
+    
+}
+// Navbar: End
+
+
+
+// Main
+.content {
+
+    // Hero: Start
+    .hero {
+        width: 100%;
+        height: 100%;
+        .hero-title {
+            .c-btn {
+                border: 2px solid #2a2a2a;
+            }
+        }
+    
+        .hero-figure {
+            width: 100%;
+            img {
+                width: 105%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    // Hero: End
+
+
+    
+    // Desc Products: Start
+    // Desc Products: End
+
+
+
+    // List Products: Start
+    .list-products {
+        .img-product {
+            width: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    // List Products: End
+
+
+
+
+}
+
+
+
+
+
