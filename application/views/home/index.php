@@ -1,10 +1,10 @@
 <main class="content">
 
     <!-- Hero: Start -->
-    <section class="hero d-flex align-items-center justify-content-between" style="height: 100vh;">
+    <section class="hero d-flex align-items-center justify-content-between">
 
         <div class="hero-title d-flex text-center flex-column align-items-center justify-content-center">
-            <h1 class="px-3">
+            <h1 class="px-2">
                 Kelezatan, Kenikmatan & Kelembutan Cinta
             </h1>
 
