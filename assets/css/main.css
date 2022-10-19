@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap");
 
-@import "content.css";
+@import "products.css";
 
 
 
@@ -8,7 +8,10 @@
 :root {
   --fontFamily1: "Playfair Display", serif;
   --fontFamily2: "Nunito Sans", sans-serif;
+
+  --borderStyle: 2px solid #000;
 }
+
 /* Variables Styles: End */
 
 
@@ -28,6 +31,7 @@ h1 {
 p {
   font-family: var(--fontFamily2);
 }
+
 /* Default Style: End*/
 
 
@@ -37,14 +41,13 @@ p {
 .navbar .navbar-brand {
   font-family: "Playfair Display", serif;
 }
+
 .navbar .c-navbar {
   flex-grow: 0;
 }
+
 .navbar .c-navbar .navbar-nav .nav-item .nav-link {
   font-family: "Nunito Sans", sans-serif;
 }
+
 /* Navbar: End */
-
-
-
-
