@@ -64,11 +64,39 @@
 }
 
 /* .content .list-products .desc-products .btn-control {
-
-} */
+  
+  } */
 
 /* List Products: End */
 
 
+
+/* Comment: Start */
+.comment {
+    width: auto;
+}
+
+.comment .d-flex:first-child {
+    width: 150%;
+}
+
+.c-card {
+    width: 450px;
+    border-radius: 0;
+    border: var(--borderStyle);
+    margin-left: 45px;
+    margin-right: 45px;
+}
+
+/* Comment: Start */
+
+
+
+/* Email Newsletter: Start */
+.email-newsletter {
+    background: #f8b97f;
+}
+
+/* Email Newsletter: End */
 
 /* Content: Start */

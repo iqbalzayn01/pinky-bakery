@@ -71,4 +71,76 @@
     </section>
     <!-- List Products: End -->
 
+
+    <!-- Comment: Start -->
+    <section class="comment mt-5 py-5 position-relative">
+
+        <div class="mt-5 d-flex flex-row align-items-center justify-content-between">
+
+            <!-- Card Item 1: Start -->
+            <div class="card c-card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title 1</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <!-- Card Item 1: End -->
+
+            <!-- Card Item 2: Start -->
+            <div class="card c-card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title 2</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <!-- Card Item 2: End -->
+
+            <!-- Card Item 3: Start -->
+            <div class="card c-card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title 3</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <!-- Card Item 3: End -->
+
+            <!-- Card Item 4: Start -->
+            <div class="card c-card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title 4</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <!-- Card Item 4: End -->
+
+            <!-- Card Item 5: Start -->
+            <div class="card c-card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title 5</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <!-- Card Item 5: End -->
+
+            <!-- Card Item 6: Start -->
+            <div class="card c-card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title 6</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <!-- Card Item 6: End -->
+
+        </div>
+
+    </section>
+    <!-- Comment: End -->
+
+
+    <!-- Email Newsletter: Start -->
+    <section class="email-newsletter mt-5 py-5">
+
+    </section>
+    <!-- Email Newsletter: End -->
+
 </main>
