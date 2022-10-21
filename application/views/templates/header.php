@@ -8,7 +8,7 @@
 
     <!-- Style: Start -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= base_url('assets/css/main.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/main.css'); ?>?v=<?=time();?>" type="text/css">
     <!-- Style: End -->
 
 </head>
@@ -17,7 +17,7 @@
 <!-- Navbar: Start -->
 <nav class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="<?= base_url(); ?>">Toko Kue</a>
+    <a class="navbar-brand" href="<?= base_url(); ?>">TokoKue</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

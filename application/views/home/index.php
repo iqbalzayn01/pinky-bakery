@@ -1,3 +1,4 @@
+<!-- Main: Start -->
 <main class="content">
 
     <!-- Hero: Start -->
@@ -76,7 +77,6 @@
     <section class="comment mt-5 py-5 position-relative">
 
         <div class="mt-5 d-flex flex-row align-items-center justify-content-between">
-
             <!-- Card Item 1: Start -->
             <div class="card c-card">
                 <div class="card-body">
@@ -130,7 +130,6 @@
                 </div>
             </div>
             <!-- Card Item 6: End -->
-
         </div>
 
     </section>
@@ -140,7 +139,75 @@
     <!-- Email Newsletter: Start -->
     <section class="email-newsletter mt-5 py-5">
 
+        <div class="container d-flex flex-row align-items-center justify-content-center">
+            <div class="signup-newsletter">
+                <h1>Sign up to our newsletter</h1>
+                <p>Plus get the inside scoop about exclusive offers & news!</p>
+            </div>
+
+            <form action="#" method="post" class="email-address">
+                <input type="email" name="email" id="email" placeholder="Email address">
+                <button type="submit" id="submit" class="btn c-btn">
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="44" height="44" rx="13.5" fill="#D9D9D9" stroke="black"/>
+                        <path d="M9.375 34.1666V10.8333L37.0833 22.4999L9.375 34.1666ZM11.5625 30.776L31.3958 22.4999L11.5625 14.1145V20.2395L20.3854 22.4999L11.5625 24.6874V30.776ZM11.5625 30.776V14.1145V24.6874V30.776Z" fill="black"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+
     </section>
     <!-- Email Newsletter: End -->
 
 </main>
+<!-- Main: End -->
+
+
+
+<!-- Footer: Start -->
+<footer class="footer container mt-5 py-5">
+    
+    <div class="d-flex align-items-start justify-content-evenly">
+        <a class="navbar-brand" href="<?= base_url(); ?>">
+            <h1 class="brand"><i>TokoKue</i></h1>
+            <p>© 2022 by Coding!Kelompok3</p>
+        </a>
+
+        <div class="d-flex align-items-start justify-content-between">
+            <ul class="navbar-nav mx-4">
+                <h3 class="mb-4">Learn</h3>
+                <li class="nav-item mb-3">
+                    <a class="nav-link" href="#">our story</a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link" href="#">contact</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav mx-4">
+                <h3 class="mb-4">Connect</h3>
+                <li class="nav-item mb-3">
+                    <a class="nav-link" href="#">instagram</a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link" href="#">facebook</a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link" href="#">twitter</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav mx-4">
+                <h3 class="mb-4">Legal</h3>
+                <li class="nav-item mb-3">
+                    <a class="nav-link" href="#">term of service</a>
+                </li>
+                <li class="nav-item mb-3">
+                    <a class="nav-link" href="#">privacy policy</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</footer>
+<!-- Footer: End -->
