@@ -13,7 +13,7 @@
         </div>
 
         <figure class="hero-figure">
-            <img src="<?= base_url("assets/img/hero.jpg"); ?>" alt="" srcset="">
+            <img src="<?= base_url("assets/images/hero.jpg"); ?>" alt="" srcset="">
         </figure>
 
     </section>
@@ -41,9 +41,9 @@
 
         <div class="container d-flex flex-row align-items-center justify-content-between ">
             <figure class="img-product position-relative">
-                <img src="<?= base_url('assets/img/img-product1.jpg'); ?>" alt="" class="img-item open">
-                <img src="<?= base_url('assets/img/img-product2.jpg'); ?>" alt="" class="img-item">
-                <img src="<?= base_url('assets/img/img-product3.jpg'); ?>" alt="" class="img-item">
+                <img src="<?= base_url('assets/images/img-product1.jpg'); ?>" alt="" class="img-item open">
+                <img src="<?= base_url('assets/images/img-product2.jpg'); ?>" alt="" class="img-item">
+                <img src="<?= base_url('assets/images/img-product3.jpg'); ?>" alt="" class="img-item">
             </figure>
 
             <div class="desc-products text-center">
@@ -139,18 +139,17 @@
     <!-- Email Newsletter: Start -->
     <section class="email-newsletter mt-5 py-5">
 
-        <div class="container d-flex flex-row align-items-center justify-content-center">
+        <div class="container d-flex flex-row align-items-center justify-content-around">
             <div class="signup-newsletter">
                 <h1>Sign up to our newsletter</h1>
                 <p>Plus get the inside scoop about exclusive offers & news!</p>
             </div>
 
-            <form action="#" method="post" class="email-address">
-                <input type="email" name="email" id="email" placeholder="Email address">
+            <form action="#" method="post" class="email-address d-flex">
+                <input type="email" name="email" id="email" placeholder="Email address" class="i-email">
                 <button type="submit" id="submit" class="btn c-btn">
-                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="0.5" y="0.5" width="44" height="44" rx="13.5" fill="#D9D9D9" stroke="black"/>
-                        <path d="M9.375 34.1666V10.8333L37.0833 22.4999L9.375 34.1666ZM11.5625 30.776L31.3958 22.4999L11.5625 14.1145V20.2395L20.3854 22.4999L11.5625 24.6874V30.776ZM11.5625 30.776V14.1145V24.6874V30.776Z" fill="black"/>
+                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.375 29.1666V5.83325L32.0833 17.4999L4.375 29.1666ZM6.5625 25.776L26.3958 17.4999L6.5625 9.1145V15.2395L15.3854 17.4999L6.5625 19.6874V25.776ZM6.5625 25.776V9.1145V19.6874V25.776Z" fill="black"/>
                     </svg>
                 </button>
             </form>
