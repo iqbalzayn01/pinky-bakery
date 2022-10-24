@@ -13,7 +13,7 @@
         </div>
 
         <figure class="hero-figure">
-            <img src="<?= base_url("assets/images/hero.jpg"); ?>" alt="" srcset="">
+            <img src="<?= base_url("assets/img/hero.jpg"); ?>" alt="" srcset="">
         </figure>
 
     </section>
@@ -41,9 +41,9 @@
 
         <div class="container d-flex flex-row align-items-center justify-content-between ">
             <figure class="img-product position-relative">
-                <img src="<?= base_url('assets/images/img-product1.jpg'); ?>" alt="" class="img-item open">
-                <img src="<?= base_url('assets/images/img-product2.jpg'); ?>" alt="" class="img-item">
-                <img src="<?= base_url('assets/images/img-product3.jpg'); ?>" alt="" class="img-item">
+                <img src="<?= base_url('assets/img/img-product1.jpg'); ?>" alt="" class="img-item open">
+                <img src="<?= base_url('assets/img/img-product2.jpg'); ?>" alt="" class="img-item">
+                <img src="<?= base_url('assets/img/img-product3.jpg'); ?>" alt="" class="img-item">
             </figure>
 
             <div class="desc-products text-center">
