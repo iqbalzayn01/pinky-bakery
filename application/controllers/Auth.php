@@ -102,6 +102,12 @@ class Auth extends CI_Controller {
     }
 
 
+    public function blocked()
+    {
+        $this->load->view('auth/blocked');
+    }
+
+
 
     public function logout()
     {
