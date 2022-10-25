@@ -126,4 +126,36 @@ class Auth extends CI_Controller {
         redirect('auth');
     }
 
+
+    public function changePassword()
+    {
+        if (!$this->session->userdata('reset_email')) {
+            redirect('auth');
+        }
+
+        $this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[3]|matches[password2]');
+        $this->form_validation->set_rules('password2', 'Repeat Password', 'trim|required|min_length[3]|matches[password1]');
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Change Password';
+            $this->load->view('templates/auth-header', $data);
+            $this->load->view('auth/change-password');
+            $this->load->view('templates/auth-footer');
+        } else {
+            $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+            $email = $this->session->userdata('reset_email');
+
+            $this->db->set('password', $password);
+            $this->db->where('email', $email);
+            $this->db->update('user');
+
+            $this->session->unset_userdata('reset_email');
+
+            $this->db->delete('user_token', ['email' => $email]);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password has been changed! Please login.</div>');
+            redirect('auth');
+        }
+    }
+
 }
