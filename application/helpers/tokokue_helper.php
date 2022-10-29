@@ -1,5 +1,7 @@
 <?php 
 
+
+// Method Is Logged in: Start
 function is_logged_in()
 {
     $ci = get_instance();
@@ -22,8 +24,10 @@ function is_logged_in()
         }
     }
 }
+// Method Is Logged in: End
 
 
+// Method Check Access: Start
 function check_access($role_id, $menu_id)
 {
     $ci = get_instance();
@@ -36,3 +40,4 @@ function check_access($role_id, $menu_id)
         return "checked='checked'";
     }
 }
+// Method Check Access: End

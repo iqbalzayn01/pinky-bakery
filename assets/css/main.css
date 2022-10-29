@@ -5,12 +5,15 @@
 
 
 
+
+
 /* Variables Styles: Start */
 :root {
   --fontFamily1: "Playfair Display", serif;
   --fontFamily2: "Nunito Sans", sans-serif;
 
   --borderStyle: 2px solid #000;
+  --borderRadius: 14px;
 }
 
 /* Variables Styles: End */

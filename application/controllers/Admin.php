@@ -13,6 +13,8 @@ class Admin extends CI_Controller {
     {
         $data["title"] = "Dashboard";
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+
+        $data['name'] = $this->User_model->getAllUserName();
         
         $this->load->view("templates/menu-header", $data);
         $this->load->view("templates/sidebar", $data);
@@ -22,6 +24,8 @@ class Admin extends CI_Controller {
     }
 
 
+
+    // Method Role: Start
     public function role()
     {
         $data['title'] = 'Role';
@@ -35,8 +39,10 @@ class Admin extends CI_Controller {
         $this->load->view('admin/role', $data);
         $this->load->view("templates/menu-footer");
     }
+    // Method Role: End
 
 
+    // Method Role Access: Start
     public function roleAccess($role_id)
     {
         $data['title'] = 'Role Access';
@@ -53,8 +59,10 @@ class Admin extends CI_Controller {
         $this->load->view('admin/role-access', $data);
         $this->load->view("templates/menu-footer");
     }
+    // Method Role Access: End
 
 
+    // Method Change Access: Start
     public function changeAccess()
     {
         $menu_id = $this->input->post('menuId');
@@ -75,5 +83,8 @@ class Admin extends CI_Controller {
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Access Changed!</div>');
     }
+    // Method Change Access: End
+
+
 
 }

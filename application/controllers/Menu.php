@@ -34,6 +34,8 @@ class Menu extends CI_Controller {
     }
 
 
+
+    // Method Submenu: Start
     public function submenu()
     {
         $data['title'] = 'Submenu Management';
@@ -67,6 +69,17 @@ class Menu extends CI_Controller {
             redirect('menu/submenu');
         }
     }
+    // Method Submenu: End
 
 
+    // Method Delete: Start
+    public function deleteSub($id)
+    {
+        $this->Menu_model->deleteSubmenu($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+        redirect('menu/submenu');
+    }
+    // Method Delete: End
+
+    
 }

@@ -1,0 +1,53 @@
+/* Variables Styles: Start */
+:root {
+    --fontFamily1: "Playfair Display", serif;
+    --fontFamily2: "Nunito Sans", sans-serif;
+
+    --borderStyle: 2px solid #000;
+    --borderRadius: 14px;
+}
+
+/* Variables Styles: End */
+
+
+h1 {
+    font-family: var(--fontFamily1);
+}
+
+
+
+.c-bg {
+    background-color: #DBA37E;
+}
+
+
+
+
+/* My Profile: Start */
+.card .card-body .card-text small {
+    color: #fff !important;
+}
+
+/* My Profile: End */
+
+
+
+/* Shop: Start */
+.card {
+    border: var(--borderStyle);
+    border-radius: 0;
+    background-color: #DBA37E;
+    color: #fff;
+}
+
+.carousel .card img {
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.carousel .card .c-btn {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+/* Shop: End */

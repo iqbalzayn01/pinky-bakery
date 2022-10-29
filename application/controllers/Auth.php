@@ -27,8 +27,10 @@ class Auth extends CI_Controller {
             $this->_login();
         }
     }
+    
 
 
+    // Method Private Login: Start
     private function _login()
     {
         $email = $this->input->post("email");
@@ -67,7 +69,11 @@ class Auth extends CI_Controller {
         }
     }
 
-    
+
+    // Method Private Login: End
+
+
+    // Method Registration: Start
     public function registration()
     {   
         if ($this->session->userdata('email')) {
@@ -99,7 +105,7 @@ class Auth extends CI_Controller {
                 'image' => 'default.jpg',
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 2,
-                'is_active' => 1, // 0 user activation
+                'is_active' => 1, // user activation 1 / not active 0
                 'date_created' => time()
             ];
 
@@ -108,15 +114,18 @@ class Auth extends CI_Controller {
             redirect('auth');
         }
     }
+    // Method Registration: End
 
 
+    // Method Blocked: Start
     public function blocked()
     {
         $this->load->view('auth/blocked');
     }
+    // Method Blocked: End
 
 
-
+    // Method Logout: Start
     public function logout()
     {
         $this->session->unset_userdata("email");
@@ -125,37 +134,7 @@ class Auth extends CI_Controller {
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">You have been logged out!</div>');
         redirect('auth');
     }
+    // Method Logout: End
 
-
-    public function changePassword()
-    {
-        if (!$this->session->userdata('reset_email')) {
-            redirect('auth');
-        }
-
-        $this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[3]|matches[password2]');
-        $this->form_validation->set_rules('password2', 'Repeat Password', 'trim|required|min_length[3]|matches[password1]');
-
-        if ($this->form_validation->run() == false) {
-            $data['title'] = 'Change Password';
-            $this->load->view('templates/auth-header', $data);
-            $this->load->view('auth/change-password');
-            $this->load->view('templates/auth-footer');
-        } else {
-            $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
-            $email = $this->session->userdata('reset_email');
-
-            $this->db->set('password', $password);
-            $this->db->where('email', $email);
-            $this->db->update('user');
-
-            $this->session->unset_userdata('reset_email');
-
-            $this->db->delete('user_token', ['email' => $email]);
-
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password has been changed! Please login.</div>');
-            redirect('auth');
-        }
-    }
 
 }

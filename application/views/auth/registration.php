@@ -5,7 +5,7 @@
             <!-- Nested Row within Card Body -->
             <div class="row">
                 <figure class="col-lg-5 d-none d-lg-block c-image">
-                    <img src="<?= base_url('assets/images/img-product1.jpg'); ?>" alt="">
+                    <img src="<?= base_url('assets/img/img-product1.jpg'); ?>" alt="">
                 </figure>
                 <div class="col-lg-7">
                     <div class="p-5">
