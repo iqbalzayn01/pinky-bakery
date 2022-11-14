@@ -22,6 +22,8 @@ class User extends CI_Controller {
     }
 
 
+
+    // Profile: Start
     public function profile()
     {
         $data["title"] = "My Profile";
@@ -33,6 +35,7 @@ class User extends CI_Controller {
         $this->load->view("user/profile", $data);
         $this->load->view("templates/user-footer");
     }
+    // Profile: End
 
 
     // Method Edit Profile: Start    
@@ -127,5 +130,28 @@ class User extends CI_Controller {
         }
     }
     // Method Change Password: End
+
+
+    // Checkout: Start
+    public function checkout()
+    {
+        // $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        
+        $this->form_validation->set_rules('name', 'Name', 'required|trim');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim');
+
+        if($this->form_validation->run() == false) {
+            $data["title"] = "Checkout";
+            $this->load->view("templates/user-header", $data);
+            $this->load->view("user/checkout", $data);
+        } else {
+            $this->Checkout_model->addCheckout();
+            $this->session->set_flashdata('checkout', '<div class="alert alert-success" role="alert">Congratulation! your order has been created.</div>');
+            redirect('user/checkout');
+        }
+
+       
+    }
+    // Checkout: End
 
 }

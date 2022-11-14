@@ -8,15 +8,15 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
+                    <!-- <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1> -->
 
                     <!-- Member: Start -->
                     <div class="row mt-3">
                         <div class="col-md-6">
-                            <h3>Daftar Member</h3>
+                            <h3>Daftar Admin</h3>
                             <?php if (empty($user)) : ?>
                                 <div class="alert alert-danger" role="alert">
-                                data mahasiswa tidak ditemukan.
+                                data admin tidak ditemukan.
                                 </div>
                             <?php endif; ?>
                             <ul class="list-group">

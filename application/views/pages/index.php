@@ -84,7 +84,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Black Forest</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -93,7 +93,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Red Velvet</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -102,7 +102,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Choco Devila</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Choco Maltine</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -124,7 +124,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Klasik Opera</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -133,7 +133,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Matcha Opera</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Cokelat Regal</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -155,7 +155,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Strawberry Keju</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -164,7 +164,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Vanila Fruit</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
                 </div>

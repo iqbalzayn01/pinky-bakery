@@ -24,6 +24,73 @@ class Admin extends CI_Controller {
     }
 
 
+    // Detail Members: Start
+    // public function detailMembers()
+    // {
+    //     $data["title"] = "Detail Members";
+    //     $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+
+    //     $data['name'] = $this->User_model->getAllUserName();
+        
+    //     $this->load->view("templates/menu-header", $data);
+    //     $this->load->view("templates/sidebar", $data);
+    //     $this->load->view("templates/topbar", $data);
+    //     $this->load->view("admin/index", $data);
+    //     $this->load->view("templates/menu-footer");
+    // }
+    // Detail Members: End
+    
+
+    // Daftar Admin: Start
+    public function daftarAdmin()
+    {
+        $data['title'] = 'Daftar Admin';
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        
+        $data['name'] = $this->Admin_model->getAllAdmin();
+
+        $this->load->view("templates/menu-header", $data);
+        $this->load->view("templates/sidebar", $data);
+        $this->load->view("templates/topbar", $data);
+        $this->load->view('admin/df-admin', $data);
+        $this->load->view("templates/menu-footer");
+    }
+    // Daftar Admin: End
+
+
+    // Profile Admin: Start
+    public function profileAdmin()
+    {
+        $data["title"] = "Profile Admin";
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+
+        $data['name'] = $this->User_model->getAllUserName();
+        
+        $this->load->view("templates/menu-header", $data);
+        $this->load->view("templates/sidebar", $data);
+        $this->load->view("templates/topbar", $data);
+        $this->load->view("admin/profile-admin", $data);
+        $this->load->view("templates/menu-footer");
+    }
+    // Profile Admin: End
+
+
+    // Orders: Start
+    public function orders()
+    {
+        $data["title"] = "Orders";
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+
+        $data['name'] = $this->Checkout_model->getAllOrders();
+        
+        $this->load->view("templates/menu-header", $data);
+        $this->load->view("templates/sidebar", $data);
+        $this->load->view("templates/topbar", $data);
+        $this->load->view("admin/orders", $data);
+        $this->load->view("templates/menu-footer");
+    }
+    // Orders: End
+
 
     // Method Role: Start
     public function role()
@@ -86,5 +153,13 @@ class Admin extends CI_Controller {
     // Method Change Access: End
 
 
+    // Method Delete Member: Start
+    public function delMember($id)
+    {
+        $this->Admin_model->deleteMember($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+        redirect('admin');
+    }
+    // Method Delete Member: End
 
 }

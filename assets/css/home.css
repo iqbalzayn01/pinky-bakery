@@ -1,11 +1,16 @@
 /* Variables Styles: Start */
-:root {
+/* :root {
     --fontFamily1: "Playfair Display", serif;
     --fontFamily2: "Nunito Sans", sans-serif;
 
     --borderStyle: 2px solid #000;
     --borderRadius: 14px;
-}
+
+    --bgColor1: #F5A5A4;
+    --bgColor2: #A3F5BD;
+
+    --colortext1: #1f1209;
+} */
 
 /* Variables Styles: End */
 
@@ -67,7 +72,7 @@
 .content .list-products .carousel .card {
     border: var(--borderStyle);
     border-radius: 0;
-    background-color: #DBA37E;
+    background-color: var(--bgColor1);
     color: #fff;
 }
 
@@ -93,6 +98,10 @@
 .comment {
     overflow-x: hidden;
     margin-top: 580px;
+}
+
+.comment .carousel {
+    height: 150px;
 }
 
 .c-card {
@@ -145,8 +154,12 @@ input[type=email] {
 
 /* Footer: Start */
 .footer {
-    background-color: #DBA37E;
+    background-color: var(--bgColor1);
     color: #fff;
+}
+
+.footer .navbar-brand .brand {
+    color: #2a2a2a;
 }
 
 /* Footer: End */
