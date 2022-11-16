@@ -50,8 +50,15 @@ p {
 
 
 /* Navbar: Start */
+.navbar {
+  border-bottom: var(--borderStyle);
+}
+
 .navbar .navbar-brand {
   font-family: "Playfair Display", serif;
+  color: var(--bgColor1);
+  font-weight: 700;
+  font-size: 36px;
 }
 
 .navbar .c-navbar {
@@ -60,6 +67,11 @@ p {
 
 .navbar .c-navbar .navbar-nav .nav-item .nav-link {
   font-family: "Nunito Sans", sans-serif;
+  color: var(--colortext1);
+}
+
+.navbar .c-navbar .navbar-nav .nav-item .nav-link:hover {
+  color: var(--bgColor1);
 }
 
 /* Navbar: End */

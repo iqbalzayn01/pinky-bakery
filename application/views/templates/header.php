@@ -40,7 +40,7 @@
           <a class="nav-link" href="<?= base_url('auth/registration'); ?>">sign up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="<?= base_url('auth'); ?>">
             <i class="fas fa-fw fa-shopping-bag"></i>
           </a>
         </li>

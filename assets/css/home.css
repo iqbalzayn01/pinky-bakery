@@ -17,6 +17,23 @@
 
 
 /* Main */
+body {
+    background-color: #fffbfb;
+}
+
+body::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+} */
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--bgColor1);
+    /* outline: 1px solid slategrey; */
+}
+
 /* Content: Start */
 
 /* Hero: Start */
@@ -37,7 +54,8 @@
     width: 100%;
     height: 100vh;
     object-fit: cover;
-    border: var(--borderStyle);
+    /* border-right: var(--borderStyle);
+    border-bottom: var(--borderStyle); */
 }
 
 /* Hero: End */
@@ -100,16 +118,16 @@
     margin-top: 580px;
 }
 
-.comment .carousel {
-    height: 150px;
-}
-
 .c-card {
     width: 450px;
     border-radius: 0;
     border: var(--borderStyle);
     margin-left: 45px;
     margin-right: 45px;
+}
+
+.comment .c-card .card-title {
+    color: var(--bgColor1);
 }
 
 /* Comment: Start */
@@ -156,6 +174,7 @@ input[type=email] {
 .footer {
     background-color: var(--bgColor1);
     color: #fff;
+    border-top: var(--borderStyle);
 }
 
 .footer .navbar-brand .brand {

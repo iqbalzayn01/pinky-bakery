@@ -4,19 +4,19 @@
     <!-- Hero: Start -->
     <section class="hero d-flex align-items-center justify-content-between">
 
-        <div class="hero-title d-flex text-center flex-column align-items-center justify-content-center">
-            <h1 class="px-2">
-                Delicious Cake for Everyone
-                <!--Kelezatan, Kenikmatan & Kelembutan Cinta-->
-            </h1>
-
-            <button class="btn c-btn mt-3">shop now</button>
-        </div>
-
         <figure class="hero-figure">
             <img src="<?= base_url("assets/img/hero.jpg"); ?>" alt="" srcset="">
         </figure>
 
+        <div class="hero-title d-flex text-center flex-column align-items-center justify-content-center">
+            <h1 class="px-2">
+                Delicious Cake for Everyone
+                <!-- Kelezatan, Kenikmatan & Kelembutan Cinta -->
+            </h1>
+
+            <a href="<?= base_url('auth'); ?>" class="btn c-btn mt-3">shop now</a>
+        </div>
+        
     </section>
     <!-- Hero: Start -->
 
@@ -84,7 +84,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Black Forest</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -93,7 +93,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Red Velvet</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -102,7 +102,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Choco Devila</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Choco Maltine</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -124,7 +124,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Klasik Opera</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -133,7 +133,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Matcha Opera</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Cokelat Regal</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -155,7 +155,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Strawberry Keju</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
 
@@ -164,7 +164,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Vanila Fruit</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="<?= base_url('auth/registration'); ?>" class="btn c-btn">Go somewhere</a>
+                            <a href="<?= base_url('auth'); ?>" class="btn c-btn">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -187,96 +187,36 @@
     <!-- Comment: Start -->
     <section class="comment py-5 position-relative">
 
-        <div class="mt-5 ">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item d-flex flex-row align-items-center justify-content-between active">
-                        <!-- Card Item 1: Start -->
-                        <div class="card c-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title 1</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <!-- Card Item 1: End -->
-
-                        <!-- Card Item 2: Start -->
-                        <div class="card c-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title 2</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <!-- Card Item 2: End -->
-
-                        <!-- Card Item 3: Start -->
-                        <div class="card c-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title 3</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <!-- Card Item 3: End -->
-
-                        <!-- Card Item 4: Start -->
-                        <div class="card c-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title 4</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <!-- Card Item 4: End -->
-                    </div>
-                    <div class="carousel-item d-flex flex-row align-items-center justify-content-between">
-                        <!-- Card Item 5: Start -->
-                        <div class="card c-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title 5</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <!-- Card Item 5: End -->
-
-                        <!-- Card Item 6: Start -->
-                        <div class="card c-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title 6</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <!-- Card Item 6: End -->
-
-                        <!-- Card Item 7: Start -->
-                        <div class="card c-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title 7</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <!-- Card Item 7: End -->
-
-                        <!-- Card Item 8: Start -->
-                        <div class="card c-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title 8</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <!-- Card Item 8: End -->
-                    </div>
+        <div class="container d-flex flex-row justify-content-between mt-5">
+            <div class="card c-card" style="width: 18rem;">
+                <figure class="mx-auto pt-3">
+                    <img src="<?= base_url('assets/img/profile/user2.png') ?>" width="90" class="" alt="">
+                </figure>
+                <div class="card-body text-center">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
-            
 
-            
+            <div class="card c-card" style="width: 18rem;">
+                <figure class="mx-auto pt-3">
+                    <img src="<?= base_url('assets/img/profile/user1.png') ?>" width="90" class="" alt="">
+                </figure>
+                <div class="card-body text-center">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+
+            <div class="card c-card" style="width: 18rem;">
+                <figure class="mx-auto pt-3">
+                    <img src="<?= base_url('assets/img/profile/user3.png') ?>" width="90" class="" alt="">
+                </figure>
+                <div class="card-body text-center">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
         </div>
 
     </section>
