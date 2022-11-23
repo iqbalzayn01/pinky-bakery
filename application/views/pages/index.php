@@ -26,9 +26,9 @@
 
         <div class="container d-flex flex-row align-items-center justify-content-between">
             <div class="desc-items text-center">
-                <h1>Product Toko Kue</h1>
+                <h1>Product Co'Cake</h1>
                 <p class="px-5 py-4">
-                    Selamat datang di Toko Bloom Cake, kami siap melayani anda dengan banyaknya jenis kue lezat untuk acara istimewa anda dan orang yang anda cinta
+                    Selamat datang di Toko Co'Cake, kami siap melayani anda dengan banyaknya jenis kue lezat untuk acara istimewa anda dan orang yang anda cinta
                 </p>
             </div>
         </div>
@@ -48,7 +48,7 @@
             </figure>
 
             <div class="desc-products text-center">
-                <h1>List Product Toko Kue</h1>
+                <h1>List Product Co'Cake</h1>
                 <p class="py-3">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, aperiam? Officia sapiente placeat accusantium tempore dolore nesciunt quod laboriosam, necessitatibus ut illo et, temporibus facilis. Fugit molestias dignissimos dolorem aspernatur?
                 </p>
@@ -188,7 +188,7 @@
     <section class="comment py-5 position-relative">
 
         <div class="container d-flex flex-row justify-content-between mt-5">
-            <div class="card c-card" style="width: 18rem;">
+            <div class="card c-card py-3" style="width: 18rem;">
                 <figure class="mx-auto pt-3">
                     <img src="<?= base_url('assets/img/profile/user2.png') ?>" width="90" class="" alt="">
                 </figure>
@@ -198,7 +198,7 @@
                 </div>
             </div>
 
-            <div class="card c-card" style="width: 18rem;">
+            <div class="card c-card py-3" style="width: 18rem;">
                 <figure class="mx-auto pt-3">
                     <img src="<?= base_url('assets/img/profile/user1.png') ?>" width="90" class="" alt="">
                 </figure>
@@ -208,7 +208,7 @@
                 </div>
             </div>
 
-            <div class="card c-card" style="width: 18rem;">
+            <div class="card c-card py-3" style="width: 18rem;">
                 <figure class="mx-auto pt-3">
                     <img src="<?= base_url('assets/img/profile/user3.png') ?>" width="90" class="" alt="">
                 </figure>

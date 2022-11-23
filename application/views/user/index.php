@@ -15,7 +15,7 @@
                             </figure>
 
                             <div class="desc-products text-center">
-                                <h1>List Product Toko Kue</h1>
+                                <h1>List Product Co'Cake</h1>
                                 <p class="py-3 px-5">
                                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, aperiam? Officia sapiente placeat accusantium tempore dolore nesciunt quod laboriosam, necessitatibus ut illo et, temporibus facilis. Fugit molestias dignissimos dolorem aspernatur?
                                 </p>

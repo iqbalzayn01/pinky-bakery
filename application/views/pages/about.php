@@ -6,7 +6,7 @@
 
         <div class="container d-flex flex-row align-items-center justify-content-between">
             <div class="desc-items text-center">
-                <h1 class="pt-0 pb-4">About Toko Kue</h1>
+                <h1 class="pt-0 pb-4">About Co'Cake</h1>
                 <p class="px-5 py-3">
                     Dibuat dengan cinta dan hasrat untuk cita rasa terbaik, The Bloom Cake adalah toko kue bergaya Eropa yang baru berkembang saat ini di Indonesia.
                 </p>

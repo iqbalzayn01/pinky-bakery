@@ -37,6 +37,8 @@
 
 h1 {
   font-family: var(--fontFamily1);
+  color: var(--bgColor1);
+  font-weight: 700;
 
 }
 
