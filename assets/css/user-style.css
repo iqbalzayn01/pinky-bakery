@@ -44,7 +44,7 @@ h1 {
 
 /* My Profile: Start */
 .card .card-body .card-text small {
-    color: #fff !important;
+    color: red !important;
 }
 
 /* My Profile: End */
