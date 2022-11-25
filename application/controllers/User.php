@@ -21,6 +21,29 @@ class User extends CI_Controller {
         $this->load->view("templates/user-footer");
     }
 
+    public function transaksi()
+    {
+        $data["title"] = "Transaksi";
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        
+        $data['nama_produk'] = $this->User_model->getProduk();
+        $data['transaksi'] = $this->User_model->getTransaksi();
+
+        $this->form_validation->set_rules('kuantitas', 'kuantitas', 'required|trim');
+
+        if($this->form_validation->run() == false) {
+            $this->load->view("templates/user-header", $data);
+            $this->load->view("templates/user-sidebar", $data);
+            $this->load->view("templates/user-topbar", $data);
+            $this->load->view("user/transaksi", $data);
+            $this->load->view("templates/user-footer");
+        } else {
+            $this->User_model->addtransaksi();
+            $this->session->set_flashdata('checkout', '<div class="alert alert-success" role="alert">Congratulation! your order has been created.</div>');
+            redirect('user/transaksi');
+        }
+    }
+
 
 
     // Profile: Start
