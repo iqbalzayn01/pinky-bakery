@@ -2,11 +2,6 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class User_model extends CI_Model {
-    public function __construct()
-    {
-        parent::__construct();
-        is_logged_in();
-    }
 
     public function getAllUserName()
     {
@@ -19,7 +14,7 @@ class User_model extends CI_Model {
     // Add Transaksi: Start
     public function addtransaksi()
     {
-        $id = $this->session->userdata['user_id'];
+        $id = $this->session->userdata('id');
         $data = [
             'kuantitas' => $this->input->post('kuantitas', true),
             'tgl_transaksi' => time(),
