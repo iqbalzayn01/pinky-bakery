@@ -14,7 +14,7 @@ class User_model extends CI_Model {
     // Add Transaksi: Start
     public function addtransaksi()
     {
-        $id = $this->session->userdata['user_id'];
+        $id = $this->session->userdata('id');
         $data = [
             'kuantitas' => $this->input->post('kuantitas', true),
             'tgl_transaksi' => time(),
