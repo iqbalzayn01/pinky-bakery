@@ -52,27 +52,36 @@ p {
 
 
 /* Navbar: Start */
-.navbar {
+.navbars {
   border-bottom: var(--borderStyle);
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 }
 
-.navbar .navbar-brand {
+#menu-bar{
+  display: none;
+}
+
+.navbars .navbar-brand {
   font-family: "Playfair Display", serif;
   color: var(--bgColor1);
   font-weight: 700;
   font-size: 36px;
 }
 
-.navbar .c-navbar {
+.navbars .c-navbar {
   flex-grow: 0;
 }
 
-.navbar .c-navbar .navbar-nav .nav-item .nav-link {
+.navbars .c-navbar .navbar-nav .nav-item .nav-link {
   font-family: "Nunito Sans", sans-serif;
   color: var(--colortext1);
+  margin: 0 10px;
 }
 
-.navbar .c-navbar .navbar-nav .nav-item .nav-link:hover {
+.navbars .c-navbar .navbar-nav .nav-item .nav-link:hover {
   color: var(--bgColor1);
 }
 

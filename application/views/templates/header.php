@@ -9,7 +9,8 @@
     <!-- Style: Start -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<?= base_url('assets/css/main.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/main.css'); ?>" type="text/css">    
+    <link rel="icon" type="image/png" sizes="32x32" href=<?= base_url('assets/img/favicon-32x32.png'); ?> >
     <!-- Style: End -->
     <!-- ?v=<time();? -->
 
@@ -17,10 +18,13 @@
 <body>
 
 <!-- Navbar: Start -->
-<nav class="navbar navbar-expand-lg">
+<nav class="navbars navbar-expand-lg">
 
-  <div class="container">
-    <a class="navbar-brand" href="<?= base_url(); ?>">Co'Cake</a>
+  <div class="container d-flex align-items-center justify-content-between">
+    <a class="navbar-brand d-flex align-items-center" href="<?= base_url(); ?>"> 
+      <img src="<?= base_url('assets/img/logo_shop.jpg'); ?>" width=80" alt="">
+      <h1>Co'Cake</h1>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
