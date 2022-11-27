@@ -36,7 +36,7 @@ class User_model extends CI_Model {
     }
 
 
-    public function getProduk()
+    public function getProducts()
     {
         return $this->db->get('produk')->result_array();
     }

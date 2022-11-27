@@ -25,7 +25,7 @@ class User extends CI_Controller {
     {
         $data["title"] = "Transaksi";
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
-        $data['nama_produk'] = $this->User_model->getProduk();
+        $data['nama_produk'] = $this->User_model->getProducts();
         $data['transaksi'] = $this->User_model->getTransaksiUser();
 
         $this->form_validation->set_rules('kuantitas', 'kuantitas', 'required|trim');

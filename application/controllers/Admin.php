@@ -80,13 +80,28 @@ class Admin extends CI_Controller {
     {
         $data["title"] = "Orders";
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
-
-        $data['name'] = $this->Checkout_model->getAllOrders();
+        $data['transaksi'] = $this->User_model->getTransaksiUser();
         
         $this->load->view("templates/menu-header", $data);
         $this->load->view("templates/sidebar", $data);
         $this->load->view("templates/topbar", $data);
         $this->load->view("admin/orders", $data);
+        $this->load->view("templates/menu-footer");
+    }
+    // Orders: End
+    
+    
+    // Orders: Start
+    public function products()
+    {
+        $data["title"] = "Produsts";
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        $data['nama_produk'] = $this->User_model->getProducts();
+        
+        $this->load->view("templates/menu-header", $data);
+        $this->load->view("templates/sidebar", $data);
+        $this->load->view("templates/topbar", $data);
+        $this->load->view("admin/products", $data);
         $this->load->view("templates/menu-footer");
     }
     // Orders: End

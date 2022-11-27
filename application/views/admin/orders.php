@@ -8,40 +8,50 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <!-- <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1> -->
+	                <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-                    <!-- Member: Start -->
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <h3>Orders</h3>
-                            <?php if (empty($name)) : ?>
-                                <div class="alert alert-danger" role="alert">
-                                data user tidak ditemukan.
-                                </div>
+                    <div class="row">
+                        <div class="col-lg">
+                            <?php if (validation_errors()) : ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= validation_errors(); ?>
+                            </div>
                             <?php endif; ?>
-                            <ul class="list-group">
-                                <?php foreach ($name as $nm) : ?>
-                                <li class="list-group-item">
-                                    <?= $nm['name']; ?>
-                                    <?= $nm['orders']; ?>
-                                    <?= $nm['email']; ?>
-                                    <?= $nm['address']; ?>
-                                    <?= $nm['districts']; ?>
-                                    <?= $nm['city']; ?>
-                                    <?= $nm['zip_code']; ?>
-                                    <?= date('d F Y', $nm['date_orders']); ?>
-                                    <a href="#"
-                                        class="badge badge-danger float-right tombol-hapus">hapus</a>
-                                    <a href="#"
-                                        class="badge badge-success float-right">ubah</a>
-                                    <a href="#"
-                                        class="badge badge-primary float-right">detail</a>
-                                </li>
-                                <?php endforeach; ?>
-                            </ul>
+
+                            <?= $this->session->flashdata('message'); ?>
+
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Nama Produk</th>
+                                        <th scope="col" style="min-width: 8rem">Kuantitas</th>
+                                        <th scope="col">Tanggal Transaksi</th>
+                                        <th scope="col">Keterangan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($transaksi as $tr) : ?>
+                                    <tr>
+                                        <th scope="row"><?= $i; ?></th>
+                                        <td><?= $tr['name']; ?></td>
+                                        <td><?= $tr['email']; ?></td>
+                                        <td><?= $tr['nama_produk']; ?></td>
+                                        <td><?= $tr['kuantitas']; ?></td>
+                                        <td><?= date('d F Y', $tr['tgl_transaksi']); ?></td>
+                                        <td><?= $tr['keterangan']; ?></td>
+                                    </tr>
+                                    <?php $i++; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+
+
                         </div>
                     </div>
-                    <!-- Member: End -->
 
                 </div>
                 <!-- /.container-fluid -->
