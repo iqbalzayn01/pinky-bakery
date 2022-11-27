@@ -20,7 +20,10 @@
 				<thead>
 					<tr>
 						<th scope="col">No</th>
-						<th scope="col" style="min-width: 12rem">Kuantitas</th>
+						<th scope="col">Nama</th>
+						<th scope="col">Email</th>
+						<th scope="col">Nama Produk</th>
+						<th scope="col" style="min-width: 8rem">Kuantitas</th>
 						<th scope="col">Tanggal Transaksi</th>
 						<th scope="col">Keterangan</th>
 					</tr>
@@ -28,13 +31,20 @@
 				<tbody>
 					<?php $i = 1; ?>
 					<?php foreach ($transaksi as $tr) : ?>
+
+					<?php if ($this->session->userdata('email') == $tr['email']) : ?>
 					<tr>
 						<th scope="row"><?= $i; ?></th>
+						<td><?= $tr['name']; ?></td>
+						<td><?= $tr['email']; ?></td>
+						<td><?= $tr['nama_produk']; ?></td>
 						<td><?= $tr['kuantitas']; ?></td>
 						<td><?= date('d F Y', $tr['tgl_transaksi']); ?></td>
 						<td><?= $tr['keterangan']; ?></td>
 					</tr>
 					<?php $i++; ?>
+					<?php endif; ?>
+
 					<?php endforeach; ?>
 				</tbody>
 			</table>

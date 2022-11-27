@@ -14,12 +14,11 @@ class User_model extends CI_Model {
     // Add Transaksi: Start
     public function addtransaksi()
     {
-        $id = $this->session->userdata('id');
         $data = [
             'kuantitas' => $this->input->post('kuantitas', true),
             'tgl_transaksi' => time(),
             'keterangan' => $this->input->post('keterangan', true),
-            'user_id' => $id,
+            'email' => $this->session->userdata('email'),
             'produk_id' => $this->input->post('produk_id', true),
         ];
 
@@ -28,9 +27,12 @@ class User_model extends CI_Model {
     // Add Transaksi: End
 
 
-    public function getTransaksi()
+    public function getTransaksiUser()
     {
-        return $this->db->get('transaksi')->result_array();
+        $query = "SELECT `user`.`name`, `transaksi`.`email`, `produk`.`nama_produk`, `transaksi`.`kuantitas`, `transaksi`.`tgl_transaksi`, `transaksi`.`keterangan` FROM `transaksi` 
+                INNER JOIN `user` ON `transaksi`.`email` = `user`.`email`
+                INNER JOIN `produk` ON `transaksi`.`produk_id` = `produk`.`id`";
+        return $this->db->query($query)->result_array();
     }
 
 
@@ -38,5 +40,7 @@ class User_model extends CI_Model {
     {
         return $this->db->get('produk')->result_array();
     }
+
+
 
 }
