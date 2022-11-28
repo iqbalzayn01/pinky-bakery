@@ -27,9 +27,18 @@ class User_model extends CI_Model {
     // Add Transaksi: End
 
 
+    // Delete Transaksu: Start
+    public function deleteTransaksi($id)
+    {
+        // $this->db->where('id', $id);
+        $this->db->delete('transaksi', ['id' => $id]);
+    }
+    // Delete Transaksu: End
+
+
     public function getTransaksiUser()
     {
-        $query = "SELECT `user`.`name`, `transaksi`.`email`, `produk`.`nama_produk`, `transaksi`.`kuantitas`, `transaksi`.`tgl_transaksi`, `transaksi`.`keterangan` FROM `transaksi` 
+        $query = "SELECT `user`.`name`, `transaksi`.`id`, `transaksi`.`email`, `produk`.`nama_produk`, `transaksi`.`kuantitas`, `transaksi`.`tgl_transaksi`, `transaksi`.`keterangan` FROM `transaksi` 
                 INNER JOIN `user` ON `transaksi`.`email` = `user`.`email`
                 INNER JOIN `produk` ON `transaksi`.`produk_id` = `produk`.`id`";
         return $this->db->query($query)->result_array();

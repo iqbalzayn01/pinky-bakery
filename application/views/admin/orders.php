@@ -30,6 +30,7 @@
                                         <th scope="col" style="min-width: 8rem">Kuantitas</th>
                                         <th scope="col">Tanggal Transaksi</th>
                                         <th scope="col">Keterangan</th>
+                                        <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,6 +44,14 @@
                                         <td><?= $tr['kuantitas']; ?></td>
                                         <td><?= date('d F Y', $tr['tgl_transaksi']); ?></td>
                                         <td><?= $tr['keterangan']; ?></td>
+                                        <td>
+                                            <ul class="list-group">
+                                                <li class="d-flex jutify-content-between">
+                                                    <a href="<?= base_url('admin/deleteOrder/'); ?><?= $tr['id']; ?>" class="mx-1 badge badge-danger float-right tombol-hapus">hapus</a>
+                                                    <a href="#" class="mx-1 badge badge-success float-right tombol-hapus">Edit</a>
+                                                </li>
+                                            </ul>
+                                        </td>
                                     </tr>
                                     <?php $i++; ?>
                                     <?php endforeach; ?>

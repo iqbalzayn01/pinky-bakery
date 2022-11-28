@@ -186,4 +186,14 @@ class Admin extends CI_Controller {
     }
     // Method Delete Member: End
 
+
+    // Method Delete Orders: Start
+    public function deleteOrder($id)
+    {
+        $this->Admin_model->deleteOrder($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+        redirect('admin/orders');
+    }
+    // Method Delete Orders: End
+
 }

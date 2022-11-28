@@ -45,6 +45,16 @@ class User extends CI_Controller {
     }
 
 
+    // Delele: STart
+    public function deleteTransaksi($id)
+    {
+        $this->User_model->deleteTransaksi($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+        redirect('user/transaksi');
+    }
+    // Delele: End
+
+
 
     // Profile: Start
     public function profile()

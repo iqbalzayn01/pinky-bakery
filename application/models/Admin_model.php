@@ -12,6 +12,15 @@ class Admin_model extends CI_Model
     // Delete Member: End
 
 
+    // Delete Member: Start
+    public function deleteOrder($id)
+    {
+        // $this->db->where('id', $id);
+        $this->db->delete('transaksi', ['id' => $id]);
+    }
+    // Delete Member: End
+
+
     public function getAllAdmin()
     {
         $this->db->get_where('user', ['role_id' => 1]);
