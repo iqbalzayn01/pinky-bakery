@@ -58,7 +58,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Black Forest</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="<?= base_url('user/checkout'); ?>" class="btn c-btn">shop now</a>
+                                            <a href="" class="btn c-btn" data-toggle="modal" data-target="#newProductModal">shop now</a>
                                         </div>
                                     </div>
 
@@ -67,7 +67,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Red Velvet</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="<?= base_url('user/checkout'); ?>" class="btn c-btn">shop now</a>
+                                            <a href="" class="btn c-btn" data-toggle="modal" data-target="#newProductModal">shop now</a>
                                         </div>
                                     </div>
 
@@ -76,7 +76,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Choco Devila</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="<?= base_url('user/checkout'); ?>" class="btn c-btn">shop now</a>
+                                            <a href="" class="btn c-btn" data-toggle="modal" data-target="#newProductModal">shop now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Choco Maltine</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="<?= base_url('user/checkout'); ?>" class="btn c-btn">shop now</a>
+                                            <a href="" class="btn c-btn" data-toggle="modal" data-target="#newProductModal">shop now</a>
                                         </div>
                                     </div>
 
@@ -98,7 +98,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Klasik Opera</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="<?= base_url('user/checkout'); ?>" class="btn c-btn">shop now</a>
+                                            <a href="" class="btn c-btn" data-toggle="modal" data-target="#newProductModal">shop now</a>
                                         </div>
                                     </div>
 
@@ -107,7 +107,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Matcha Opera</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="<?= base_url('user/checkout'); ?>" class="btn c-btn">shop now</a>
+                                            <a href="" class="btn c-btn" data-toggle="modal" data-target="#newProductModal">shop now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Cokelat Regal</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="<?= base_url('user/checkout'); ?>" class="btn c-btn">shop now</a>
+                                            <a href="" class="btn c-btn" data-toggle="modal" data-target="#newProductModal">shop now</a>
                                         </div>
                                     </div>
 
@@ -129,7 +129,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Strawberry Keju</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="<?= base_url('user/checkout'); ?>" class="btn c-btn">shop now</a>
+                                            <a href="" class="btn c-btn" data-toggle="modal" data-target="#newProductModal">shop now</a>
                                         </div>
                                     </div>
 
@@ -138,7 +138,7 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Vanila Fruit</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="<?= base_url('user/checkout'); ?>" class="btn c-btn">shop now</a>
+                                            <a href="" class="btn c-btn" data-toggle="modal" data-target="#newProductModal">shop now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -162,3 +162,49 @@
 
             </div>
             <!-- End of Main Content -->
+
+
+
+<!-- Modal: Start -->
+<div class="modal fade" id="newProductModal" tabindex="-1" role="dialog" aria-labelledby="newProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newProductModalLabel">Shop Now</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="transaksi" action="<?= base_url('user/transaksi'); ?>" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+						<label for="kuantitas">Kuantitas</label>
+                        <input type="number" class="form-control" id="kuantitas" name="kuantitas" placeholder="Kuantitas" value="<?= set_value('kuantitas'); ?>">
+						<?= form_error('kuantitas', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
+						<label for="produk_id">Select Product</label>
+                        <select name="produk_id" id="produk_id" class="form-control">
+                            <option value="">Select Product</option>
+                            <?php foreach ($nama_produk as $np) : ?>
+                            <option value="<?= $np['id']; ?>"><?= $np['nama_produk']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+						<label for="keterangan">Keterangan</label>
+                        <input type="text" class="form-control" id="keterangan" name="keterangan" placeholder="Keterangan" value="<?= set_value('keterangan'); ?>">
+						<?= form_error('keterangan', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
+<!-- Modal: End -->

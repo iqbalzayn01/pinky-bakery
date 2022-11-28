@@ -22,7 +22,7 @@
 
   <div class="container d-flex align-items-center justify-content-between">
     <a class="navbar-brand d-flex align-items-center" href="<?= base_url(); ?>"> 
-      <img src="<?= base_url('assets/img/logo_shop.jpg'); ?>" width=80" alt="">
+      <img src="<?= base_url('assets/img/logo_shop.jpg'); ?>" width="80" alt="">
       <h1>Co'Cake</h1>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

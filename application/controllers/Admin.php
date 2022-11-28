@@ -97,12 +97,21 @@ class Admin extends CI_Controller {
         $data["title"] = "Produsts";
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
         $data['nama_produk'] = $this->User_model->getProducts();
-        
-        $this->load->view("templates/menu-header", $data);
-        $this->load->view("templates/sidebar", $data);
-        $this->load->view("templates/topbar", $data);
-        $this->load->view("admin/products", $data);
-        $this->load->view("templates/menu-footer");
+
+        $this->form_validation->set_rules('nama_produk', 'Nama Produk', 'required|trim');
+        $this->form_validation->set_rules('harga', 'Harga', 'required|trim');
+
+        if($this->form_validation->run() == false) {
+            $this->load->view("templates/menu-header", $data);
+            $this->load->view("templates/sidebar", $data);
+            $this->load->view("templates/topbar", $data);
+            $this->load->view("admin/products", $data);
+            $this->load->view("templates/menu-footer");
+        } else {
+            $this->Admin_model->addProduct();
+            $this->session->set_flashdata('nama_produk', '<div class="alert alert-success" role="alert">Congratulation! your order has been created.</div>');
+            redirect('admin/products');
+        }
     }
     // Orders: End
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2022 at 01:46 PM
+-- Generation Time: Nov 28, 2022 at 04:59 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -96,7 +96,11 @@ CREATE TABLE `transaksi` (
 INSERT INTO `transaksi` (`id`, `email`, `kuantitas`, `tgl_transaksi`, `keterangan`, `produk_id`) VALUES
 (4, 'alexa@gmail.com', 2, 1669523926, 'testing aja 1', 1),
 (5, 'alexa@gmail.com', 1, 1669524073, 'testing aja 2', 4),
-(6, 'user@user.com', 4, 1669524217, 'testing aja 1', 7);
+(6, 'user@user.com', 4, 1669524217, 'testing aja 1', 7),
+(7, 'alexa@gmail.com', 5, 1669554548, 'testing aja 3', 9),
+(8, 'bulan@gmail.com', 1, 1669606307, 'Tambah toping', 8),
+(9, 'bulan@gmail.com', 3, 1669606349, '', 2),
+(10, 'bulan@gmail.com', 1, 1669606739, 'Itu aja', 3);
 
 -- --------------------------------------------------------
 
@@ -220,7 +224,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (10, 1, 'Daftar Admin', 'admin/daftarAdmin', 'fas fa-fw fa-users-cog', 1),
 (11, 1, 'Profile Admin', 'admin/profileAdmin', 'fas fa-fw fa-user-cog', 1),
 (13, 1, 'Orders', 'admin/orders', 'fas fa-fw fa-inbox', 1),
-(16, 2, 'Transaksi', 'user/transaksi', 'far fa-fw fa-money-bill-alt', 1);
+(16, 2, 'Transaksi', 'user/transaksi', 'far fa-fw fa-money-bill-alt', 1),
+(17, 1, 'Products', 'admin/products', 'fas fa-fw fa-boxes', 1);
 
 --
 -- Indexes for dumped tables
@@ -288,13 +293,13 @@ ALTER TABLE `checkout`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -324,7 +329,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

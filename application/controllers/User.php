@@ -13,6 +13,7 @@ class User extends CI_Controller {
     {
         $data["title"] = "Shop";
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        $data['nama_produk'] = $this->User_model->getProducts();
         
         $this->load->view("templates/user-header", $data);
         $this->load->view("templates/user-sidebar", $data);

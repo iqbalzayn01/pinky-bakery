@@ -18,4 +18,17 @@ class Admin_model extends CI_Model
         $this->db->where('role_id =', 1);
         return $this->db->get('user')->result_array();
     }
+
+
+    // Add Product: Start
+    public function addProduct()
+    {
+        $data = [
+            'nama_produk' => $this->input->post('nama_produk'),
+            'harga' => $this->input->post('harga')
+        ];
+
+        $this->db->insert('produk', $data);
+    }
+    // Add Product: End
 }

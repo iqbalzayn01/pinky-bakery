@@ -46,3 +46,39 @@
 
 </div>
 <!-- End of Main Content -->
+
+
+
+<!-- Modal: Start -->
+<div class="modal fade" id="newProductModal" tabindex="-1" role="dialog" aria-labelledby="newProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newProductModalLabel">Add Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="transaksi" action="<?= base_url('admin/products'); ?>" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+						<label for="nama_produk">Nama Produk</label>
+                        <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Nama Produk" value="<?= set_value('nama_produk'); ?>">
+						<?= form_error('nama_produk', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+
+                    <div class="form-group">
+						<label for="harga">Harga</label>
+                        <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga" value="<?= set_value('harga'); ?>">
+						<?= form_error('harga', '<small class="text-danger pl-3">', '</small>'); ?>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
+<!-- Modal: End -->

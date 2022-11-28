@@ -2,9 +2,9 @@
 <main class="content">
 
     <!-- Desc Products: Start -->
-    <section class="desc mt-5 p-5">
+    <section class="desc p-5">
 
-        <div class="container d-flex flex-row align-items-center justify-content-between">
+        <div class="container mt-5 d-flex flex-row align-items-center justify-content-between">
             <div class="desc-items text-center">
                 <h1 class="pt-0 pb-4">About Co'Cake</h1>
                 <p class="px-5 py-3">

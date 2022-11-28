@@ -76,28 +76,28 @@
             </div>
             <div class="carousel-inner">
                 <!-- Carousel Items 1: Start -->
-                <div class="carousel-item d-flex flex-row align-items-center justify-content-evenly active">
-                    <div class="card" style="width: 18rem;">
+                <div class="carousel-item d-flex flex-row align-items-start justify-content-evenly active">
+                    <div class="card" style="width: 18rem; min-height: 525px;">
                         <img src="<?= base_url('assets/img/blackforest-cake.jpg'); ?>" class="card-img-top" />
-                        <div class="card-body">
+                        <div class="card-body d-grid align-content-between justify-content-end">
                             <h5 class="card-title">Black Forest</h5>
                             <p class="card-text">Kue black forest yang lezat ini dipanggang dengan kekayaan kakao dan krim vanilla yang baru dikocok, dihiasi dengan serutan cokelat lembut dan ceri segar di atasnya. Cicipi kue lembut & lezat di hari ulang tahun Anda.</p>
                             <a href="<?= base_url('auth'); ?>" class="btn c-btn">Rp. 270.000</a>
                         </div>
                     </div>
 
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 18rem; min-height: 525px;">
                         <img src="<?= base_url('assets/img/redvelvet-cake.jpg'); ?>" class="card-img-top" />
-                        <div class="card-body">
+                        <div class="card-body d-grid align-content-between justify-content-end">
                             <h5 class="card-title">Red Velvet</h5>
                             <p class="card-text">Kue lezat dengan lapisan spons dan krim lembut ini sangat populer di kalangan pelanggan tetap kami dan bisa menjadi kue yang sempurna untuk ulang tahun Anda dan orang yang Anda cintai.</p>
                             <a href="<?= base_url('auth'); ?>" class="btn c-btn">Rp 300.000</a>
                         </div>
                     </div>
 
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 18rem; min-height: 525px;">
                         <img src="<?= base_url('assets/img/chocodevila-cake.jpg'); ?>" class="card-img-top" />
-                        <div class="card-body">
+                        <div class="card-body d-grid align-content-between justify-content-end">
                             <h5 class="card-title">Choco Devila</h5>
                             <p class="card-text">Kue utopia rasa cokelat yang mewah dengan campuran garnish dan ditaburi krim ganache cokelat. Cocok bagi Anda yang pecinta cokelat dan bisa menjadi kue yang sempurna untuk Anda dan orang yang Anda cintai.</p>
                             <a href="<?= base_url('auth'); ?>" class="btn c-btn">Rp 200.000</a>
@@ -107,28 +107,28 @@
                 <!-- Carousel Items 1: End -->
 
                 <!-- Carousel Items 2: Start -->
-                <div class="carousel-item d-flex flex-row align-items-center justify-content-evenly">
-                    <div class="card" style="width: 18rem;">
+                <div class="carousel-item d-flex flex-row align-items-start justify-content-evenly">
+                    <div class="card" style="width: 18rem; min-height: 525px;">
                         <img src="<?= base_url('assets/img/chocomaltine-cake.jpg'); ?>" class="card-img-top" />
-                        <div class="card-body">
+                        <div class="card-body d-grid align-content-between justify-content-end">
                             <h5 class="card-title">Cheese ChocoMaltine</h5>
                             <p class="card-text">Kue keju chocomaltine yang lezat, manis, dan lezat ini akan meningkatkan mood Anda di setiap irisannya. Cicipi krim keju yang menggoda ini dengan cokelat yang banyak untuk memuaskan rasa manis Anda hari ini.</p>
                             <a href="<?= base_url('auth'); ?>" class="btn c-btn">Rp 175.000</a>
                         </div>
                     </div>
 
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 18rem; min-height: 525px;">
                         <img src="<?= base_url('assets/img/klasikopera-cake.jpg'); ?>" class="card-img-top" />
-                        <div class="card-body">
+                        <div class="card-body d-grid align-content-between justify-content-end">
                             <h5 class="card-title">Klasik Opera</h5>
                             <p class="card-text">Perpaduan spesial dari rasa cokelat hitam dan kopi. Cicipi kue opera klasik yang ekstra lezat ini untuk membuat ulang tahun Anda istimewa bisa menjadi kue yang sempurna untuk Anda dan orang yang Anda cintai.</p>
                             <a href="<?= base_url('auth'); ?>" class="btn c-btn">Rp 250.000</a>
                         </div>
                     </div>
 
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 18rem; min-height: 525px;">
                         <img src="<?= base_url('assets/img/matchaopera-cake.jpg'); ?>" class="card-img-top" />
-                        <div class="card-body">
+                        <div class="card-body d-grid align-content-between justify-content-end">
                             <h5 class="card-title">Matcha Opera</h5>
                             <p class="card-text">Kegembiraan matcha opera tradisional enam lapis ini dapat membuat perayaan apa pun terjadi! Cicipi Opera yang sangat lezat ini, dilapisi dengan matcha, buttercream, dan cokelat untuk meremajakan lidah Anda.</p>
                             <a href="<?= base_url('auth'); ?>" class="btn c-btn">Rp 280.000</a>
@@ -138,28 +138,28 @@
                 <!-- Carousel Items 2: End -->
 
                 <!-- Carousel Items 3: Start -->
-                <div class="carousel-item d-flex flex-row align-items-center justify-content-evenly">
-                    <div class="card" style="width: 18rem;">
+                <div class="carousel-item d-flex flex-row align-items-start justify-content-evenly">
+                    <div class="card" style="width: 18rem; min-height: 525px;">
                         <img src="<?= base_url('assets/img/cokelatregal-cake.jpg'); ?>" class="card-img-top" />
-                        <div class="card-body">
+                        <div class="card-body d-grid align-content-between justify-content-end">
                             <h5 class="card-title">Cokelat Regal</h5>
                             <p class="card-text">Maniskan hari spesialmu dengan kue ini. Kue ini adalah campuran sempurna dari biskuit marie ringan dan cokelat premium dan remah vanila spesial The Bloom Cake.</p>
                             <a href="<?= base_url('auth'); ?>" class="btn c-btn">Rp 165.000</a>
                         </div>
                     </div>
 
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 18rem; min-height: 525px;">
                         <img src="<?= base_url('assets/img/strawberrykeju-cake.jpg'); ?>" class="card-img-top" />
-                        <div class="card-body">
+                        <div class="card-body d-grid align-content-between justify-content-end">
                             <h5 class="card-title">Strawberry Keju</h5>
                             <p class="card-text">Kue keju panggang rasa vanila dengan stroberi yang baru dipetik ini akan membuat Anda menginginkan lebih. Spesial pesta ini akan sempurna untuk ulang tahun Anda.</p>
                             <a href="<?= base_url('auth'); ?>" class="btn c-btn">Rp 220.000</a>
                         </div>
                     </div>
 
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 18rem; min-height: 525px;">
                         <img src="<?= base_url('assets/img/vanilafruit-cake.jpg'); ?>" class="card-img-top" />
-                        <div class="card-body">
+                        <div class="card-body d-grid align-content-between justify-content-end">
                             <h5 class="card-title">Vanila Fruit</h5>
                             <p class="card-text">Kue buah vanila yang kaya rasa, dihiasi dengan irisan buah-buahan tropis di atasnya dan kacang renyah di sampingnya. Manjakan diri Anda dalam kelezatan yang luar biasa ini dan buat ulang tahun Anda berkesan.</p>
                             <a href="<?= base_url('auth'); ?>" class="btn c-btn">Rp 230.000</a>
