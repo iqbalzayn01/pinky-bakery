@@ -13,8 +13,8 @@ class Admin extends CI_Controller {
     {
         $data["title"] = "Dashboard";
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
-
-        $data['name'] = $this->User_model->getAllUserName();
+        $data['nama_produk'] = $this->Products_model->getProducts();
+        $data['produk'] = $this->Products_model->tampil_data()->result();
         
         $this->load->view("templates/menu-header", $data);
         $this->load->view("templates/sidebar", $data);
@@ -25,19 +25,19 @@ class Admin extends CI_Controller {
 
 
     // Detail Members: Start
-    // public function detailMembers()
-    // {
-    //     $data["title"] = "Detail Members";
-    //     $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+    public function detailMembers()
+    {
+        $data["title"] = "Detail Members";
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
 
-    //     $data['name'] = $this->User_model->getAllUserName();
+        $data['name'] = $this->User_model->getAllUserName();
         
-    //     $this->load->view("templates/menu-header", $data);
-    //     $this->load->view("templates/sidebar", $data);
-    //     $this->load->view("templates/topbar", $data);
-    //     $this->load->view("admin/index", $data);
-    //     $this->load->view("templates/menu-footer");
-    // }
+        $this->load->view("templates/menu-header", $data);
+        $this->load->view("templates/sidebar", $data);
+        $this->load->view("templates/topbar", $data);
+        $this->load->view("admin/df-member", $data);
+        $this->load->view("templates/menu-footer");
+    }
     // Detail Members: End
     
 
@@ -80,7 +80,7 @@ class Admin extends CI_Controller {
     {
         $data["title"] = "Orders";
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
-        $data['transaksi'] = $this->User_model->getTransaksiUser();
+        $data['transaksi'] = $this->Transaksi_model->getTransaksiUser();
         
         $this->load->view("templates/menu-header", $data);
         $this->load->view("templates/sidebar", $data);
@@ -88,16 +88,23 @@ class Admin extends CI_Controller {
         $this->load->view("admin/orders", $data);
         $this->load->view("templates/menu-footer");
     }
+
+    public function deleteOrder($id)
+    {
+        $this->Transaksi_model->deleteOrder($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+        redirect('admin/orders');
+    }
     // Orders: End
     
     
-    // Orders: Start
+    // Products: Start
     public function products()
     {
-        $data["title"] = "Produsts";
+        $data["title"] = "Products";
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
-        $data['nama_produk'] = $this->User_model->getProducts();
-
+        $data['nama_produk'] = $this->Products_model->getProducts();
+        
         $this->form_validation->set_rules('nama_produk', 'Nama Produk', 'required|trim');
         $this->form_validation->set_rules('harga', 'Harga', 'required|trim');
 
@@ -108,12 +115,20 @@ class Admin extends CI_Controller {
             $this->load->view("admin/products", $data);
             $this->load->view("templates/menu-footer");
         } else {
-            $this->Admin_model->addProduct();
+            $this->Products_model->addProduct();
             $this->session->set_flashdata('nama_produk', '<div class="alert alert-success" role="alert">Congratulation! your order has been created.</div>');
             redirect('admin/products');
         }
+
     }
-    // Orders: End
+
+    public function deleteProduct($id)
+    {
+        $this->Products_model->deleteProduct($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+        redirect('admin');
+    }
+    // Products: End
 
 
     // Method Role: Start
@@ -182,18 +197,8 @@ class Admin extends CI_Controller {
     {
         $this->Admin_model->deleteMember($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
-        redirect('admin');
+        redirect('admin/detailMembers');
     }
     // Method Delete Member: End
-
-
-    // Method Delete Orders: Start
-    public function deleteOrder($id)
-    {
-        $this->Admin_model->deleteOrder($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
-        redirect('admin/orders');
-    }
-    // Method Delete Orders: End
 
 }

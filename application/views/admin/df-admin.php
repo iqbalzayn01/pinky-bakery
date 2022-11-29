@@ -1,9 +1,4 @@
 
-
-        
-
-        
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -26,9 +21,9 @@
                                     <a href="<?= base_url('admin/delmember/'); ?><?= $nm['id']; ?>"
                                         class="badge badge-danger float-right tombol-hapus">hapus</a>
                                     <a href="#"
-                                        class="badge badge-success float-right">ubah</a>
+                                        class="badge badge-success float-right mr-1">ubah</a>
                                     <a href="#"
-                                        class="badge badge-primary float-right">detail</a>
+                                        class="badge badge-primary float-right mr-1">detail</a>
                                 </li>
                                 <?php endforeach; ?>
                             </ul>

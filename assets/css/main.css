@@ -52,7 +52,7 @@ p {
 
 
 /* Navbar: Start */
-.navbars {
+.navbar {
   border-bottom: var(--borderStyle);
   background-color: #fff;
   position: fixed;
@@ -60,29 +60,26 @@ p {
   z-index: 100;
 }
 
-#menu-bar{
-  display: none;
-}
-
-.navbars .navbar-brand {
+.navbar .navbar-brand {
   font-family: "Playfair Display", serif;
   color: var(--bgColor1);
   font-weight: 700;
   font-size: 36px;
 }
 
-.navbars .c-navbar {
+.navbar .c-navbar {
   flex-grow: 0;
 }
 
-.navbars .c-navbar .navbar-nav .nav-item .nav-link {
+.navbar .c-navbar .navbar-nav .nav-item .nav-link {
   font-family: "Nunito Sans", sans-serif;
   color: var(--colortext1);
   margin: 0 10px;
 }
 
-.navbars .c-navbar .navbar-nav .nav-item .nav-link:hover {
+.navbar .c-navbar .navbar-nav .nav-item .nav-link:hover {
   color: var(--bgColor1);
 }
+
 
 /* Navbar: End */

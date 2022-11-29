@@ -13,7 +13,8 @@ class User extends CI_Controller {
     {
         $data["title"] = "Shop";
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
-        $data['nama_produk'] = $this->User_model->getProducts();
+        $data['nama_produk'] = $this->Products_model->getProducts();
+        $data['produk'] = $this->Products_model->tampil_data()->result();
         
         $this->load->view("templates/user-header", $data);
         $this->load->view("templates/user-sidebar", $data);
@@ -26,8 +27,8 @@ class User extends CI_Controller {
     {
         $data["title"] = "Transaksi";
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
-        $data['nama_produk'] = $this->User_model->getProducts();
-        $data['transaksi'] = $this->User_model->getTransaksiUser();
+        $data['nama_produk'] = $this->Products_model->getProducts();
+        $data['transaksi'] = $this->Transaksi_model->getTransaksiUser();
 
         $this->form_validation->set_rules('kuantitas', 'kuantitas', 'required|trim');
 
@@ -38,21 +39,21 @@ class User extends CI_Controller {
             $this->load->view("user/transaksi", $data);
             $this->load->view("templates/user-footer");
         } else {
-            $this->User_model->addtransaksi();
+            $this->Transaksi_model->addtransaksi();
             $this->session->set_flashdata('checkout', '<div class="alert alert-success" role="alert">Congratulation! your order has been created.</div>');
             redirect('user/transaksi');
         }
     }
 
 
-    // Delele: STart
+    // Delete Transaksi: Start
     public function deleteTransaksi($id)
     {
-        $this->User_model->deleteTransaksi($id);
+        $this->Transaksi_model->deleteTransaksi($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
         redirect('user/transaksi');
     }
-    // Delele: End
+    // Delete Transaksi: End
 
 
 

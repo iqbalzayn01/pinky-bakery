@@ -1,9 +1,5 @@
 
 
-        
-
-        
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -30,7 +26,7 @@
                                         <th scope="col" style="min-width: 8rem">Kuantitas</th>
                                         <th scope="col">Tanggal Transaksi</th>
                                         <th scope="col">Keterangan</th>
-                                        <th scope="col">Aksi</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,8 +43,8 @@
                                         <td>
                                             <ul class="list-group">
                                                 <li class="d-flex jutify-content-between">
-                                                    <a href="<?= base_url('admin/deleteOrder/'); ?><?= $tr['id']; ?>" class="mx-1 badge badge-danger float-right tombol-hapus">hapus</a>
                                                     <a href="#" class="mx-1 badge badge-success float-right tombol-hapus">Edit</a>
+                                                    <a href="<?= base_url('admin/deleteOrder/'); ?><?= $tr['id']; ?>" class="mx-1 badge badge-danger float-right tombol-hapus">hapus</a>
                                                 </li>
                                             </ul>
                                         </td>

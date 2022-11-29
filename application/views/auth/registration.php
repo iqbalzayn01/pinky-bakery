@@ -5,7 +5,7 @@
             <!-- Nested Row within Card Body -->
             <div class="row">
                 <figure class="col-lg-5 d-none d-lg-block c-image">
-                    <img src="<?= base_url('assets/img/img-product1.jpg'); ?>" alt="">
+                    <img src="<?= base_url('assets/_ref/img/contact-bg1.jpg'); ?>" alt="">
                 </figure>
                 <div class="col-lg-7">
                     <div class="p-5">
@@ -47,9 +47,9 @@
                             </button>
                         </form>
                         <hr>
-                        <div class="text-center">
+                        <!-- <div class="text-center">
                             <a class="small" href="forgot-password.html">Forgot Password?</a>
-                        </div>
+                        </div> -->
                         <div class="text-center">
                             <a class="small" href="<?= base_url('auth'); ?>">Already have an account? Login!</a>
                         </div>

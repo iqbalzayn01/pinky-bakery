@@ -5,7 +5,7 @@
         <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand topbar c-topbar mb-5 static-top">
+        <nav class="navbars navbar-expand topbar c-topbar mb-5 static-top">
 
             <!-- Sidebar Toggle (Topbar) -->
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">

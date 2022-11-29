@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2022 at 04:59 AM
+-- Generation Time: Nov 29, 2022 at 06:35 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -56,23 +56,26 @@ INSERT INTO `checkout` (`id`, `orders`, `email`, `name`, `address`, `districts`,
 CREATE TABLE `produk` (
   `id` int(11) NOT NULL,
   `nama_produk` varchar(100) NOT NULL,
-  `harga` int(11) NOT NULL
+  `keterangan` varchar(215) DEFAULT NULL,
+  `harga` int(11) NOT NULL,
+  `stok` int(4) NOT NULL,
+  `gambar` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `produk`
 --
 
-INSERT INTO `produk` (`id`, `nama_produk`, `harga`) VALUES
-(1, 'Black Forest', 250000),
-(2, 'Red Velvet', 350000),
-(3, 'Choco Maltine', 230000),
-(4, 'Klasik Opera', 250000),
-(5, 'Matcha Opera', 180000),
-(6, 'Choco Devila', 200000),
-(7, 'Coklat Regal', 150000),
-(8, 'Strawberry Keju', 220000),
-(9, 'Vanila Fruit', 230000);
+INSERT INTO `produk` (`id`, `nama_produk`, `keterangan`, `harga`, `stok`, `gambar`) VALUES
+(1, 'Black Forest', 'Signature Black Cake with Most Cocoa Chocolate Flavor', 250000, 35, 'blackforest-cake.jpg'),
+(2, 'Red Velvet', 'Signature Cake Red Velvet with Soft Cream and Most Velvet Flavor', 350000, 30, 'redvelvet-cake.jpg'),
+(3, 'Choco Maltine', 'Special Cake ChocoMaltine with Most Maltine Chocolate Flavor', 230000, 30, 'chocomaltine-cake.jpg'),
+(4, 'Klasik Opera', 'Signature Cake Opera with Black Chocolate Mixed Coffee Flavor', 250000, 25, 'klasikopera-cake.jpg'),
+(5, 'Matcha Opera', 'Special Cake Matcha Opera with Most Matcha and Chocolate Flavor', 180000, 25, 'matchaopera-cake.jpg'),
+(6, 'Choco Devila', 'Signature Cake Choco Devila with Most Chocolate Flavor', 200000, 30, 'chocodevila-cake.jpg'),
+(7, 'Coklat Regal', 'Special Cake Regal Chocolate with Biscuits and Chocolate Flavor', 150000, 30, 'cokelatregal-cake.jpg'),
+(8, 'Strawberry Keju', 'Signature Cake Strawberry with Most Cheese and Strawberry Fruit', 220000, 25, 'strawberrykeju-cake.jpg'),
+(9, 'Vanila Fruit', 'Special Cake Vanilla with Most Tropical Fruit Mixed Vanilla Flavor', 230000, 30, 'vanilafruit-cake.jpg');
 
 -- --------------------------------------------------------
 
@@ -96,11 +99,7 @@ CREATE TABLE `transaksi` (
 INSERT INTO `transaksi` (`id`, `email`, `kuantitas`, `tgl_transaksi`, `keterangan`, `produk_id`) VALUES
 (4, 'alexa@gmail.com', 2, 1669523926, 'testing aja 1', 1),
 (5, 'alexa@gmail.com', 1, 1669524073, 'testing aja 2', 4),
-(6, 'user@user.com', 4, 1669524217, 'testing aja 1', 7),
-(7, 'alexa@gmail.com', 5, 1669554548, 'testing aja 3', 9),
-(8, 'bulan@gmail.com', 1, 1669606307, 'Tambah toping', 8),
-(9, 'bulan@gmail.com', 3, 1669606349, '', 2),
-(10, 'bulan@gmail.com', 1, 1669606739, 'Itu aja', 3);
+(6, 'user@user.com', 4, 1669524217, 'testing aja 1', 7);
 
 -- --------------------------------------------------------
 
@@ -124,14 +123,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(12, 'User Admin', 'useradmin@gmail.com', 'default.jpg', '$2y$10$NGRpcEh2mYefi7N32Va/BuAh7zCorLyUm1RKPUoS6GT/W5lf42ZDq', 1, 1, 1667801208),
-(14, 'Iqbal Zayyan', 'iqbal01@gmail.com', 'default.jpg', '$2y$10$aksjmd7x3ItUQXzFHNpiSe.ewytqx4jU8UcSxUtx8W61YLrP0qabe', 1, 1, 1667802975),
-(16, 'Alexa', 'alexa@gmail.com', 'user21.png', '$2y$10$qFtAUflQEmf1ue4ODT8jdORSp7WrPPzT0dvsdN2U1fkOmxWgnxHAy', 2, 1, 1668133966),
-(17, 'Edo Edo', 'edo@gmail.com', 'default.jpg', '$2y$10$2HYHxBoh5e9.D/A.bUepEOuYCU43k50x49PPRuHaESGkvdM6pLAc2', 2, 1, 1668348573),
+(12, 'Super Admin', 'useradmin@gmail.com', 'default-profile.jpg', '$2y$10$eZdRP.gL4vdbbV./qSXbBeu8IKQM8OSB8yUmnN0ijJl7cY.LktljG', 1, 1, 1667801208),
+(14, 'Iqbal Zayyan', 'iqbal01@gmail.com', 'default.jpg', '$2y$10$aksjmd7x3ItUQXzFHNpiSe.ewytqx4jU8UcSxUtx8W61YLrP0qabe', 2, 1, 1667802975),
 (18, 'User Aja', 'user@user.com', 'default.jpg', '$2y$10$3LDWTFADdt1hHDt7TdbC1.vrDPYPpW/SHQRsQNQAvXEx2JPNY0gUC', 2, 1, 1669185422),
-(19, 'bebas', 'bebas@gmail.com', 'default.jpg', '$2y$10$FmmF7/nkrxRuWrySb4/fN.6WSBFKE8U/uR5.bWLJd7iId5z9tF22a', 2, 1, 1669186446),
-(20, 'admin', 'admin@admin.com', 'default.jpg', '$2y$10$bu9696Z67VVc.zHcZQtxg.ID8F61tHlR3u9USS4M64AyPeUJ4mcGy', 1, 1, 1669343100),
-(21, 'Bulan', 'bulan@gmail.com', 'default.jpg', '$2y$10$RZ2Etzge75pevpotyqlofOR7pTy4GxTtULabYjU8GZtvdAvhDBsSe', 2, 1, 1669386987);
+(20, 'Admin', 'admin@admin.com', 'default.jpg', '$2y$10$getT1MaCddjmyiOGc.87tuwJKokM7TFXyzxbvDJcxz7LCEGION7eG', 1, 1, 1669343100),
+(26, 'Coding', 'coding@gmail.com', 'default.jpg', '$2y$10$oqZ8MP1VHnMy58JXfQkykOb/hsTET5JNnyCkYVBhB/nWXalJmjY6W', 1, 1, 1669699520);
 
 -- --------------------------------------------------------
 
@@ -215,17 +211,18 @@ CREATE TABLE `user_sub_menu` (
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
 (1, 1, 'Dashboard', 'admin', 'fas fa-fw fa-tachometer-alt', 1),
 (2, 2, 'Shop', 'user', 'fas fa-fw fa-shopping-bag', 1),
-(3, 2, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1),
+(3, 2, 'Transaksi', 'user/transaksi', 'far fa-fw fa-money-bill-alt', 1),
 (4, 3, 'Menu Management', 'menu', 'fas fa-fw fa-folder', 1),
 (5, 3, 'Submenu Management', 'menu/submenu', 'fas fa-fw fa-folder-open', 1),
-(7, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1),
-(8, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1),
+(6, 1, 'My Admin', 'admin/profileAdmin', 'fas fa-fw fa-user-cog', 1),
+(7, 1, 'Role Access', 'admin/role', 'fas fa-fw fa-user-tie', 1),
 (9, 2, 'My Profile', 'user/profile', 'fas fa-fw fa-user', 1),
 (10, 1, 'Daftar Admin', 'admin/daftarAdmin', 'fas fa-fw fa-users-cog', 1),
-(11, 1, 'Profile Admin', 'admin/profileAdmin', 'fas fa-fw fa-user-cog', 1),
+(11, 1, 'Daftar Member', 'admin/detailMembers', 'fas fa-fw fa-users', 1),
+(12, 1, 'Products', 'admin/products', 'fas fa-fw fa-birthday-cake', 1),
 (13, 1, 'Orders', 'admin/orders', 'fas fa-fw fa-inbox', 1),
-(16, 2, 'Transaksi', 'user/transaksi', 'far fa-fw fa-money-bill-alt', 1),
-(17, 1, 'Products', 'admin/products', 'fas fa-fw fa-boxes', 1);
+(14, 2, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1),
+(15, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1);
 
 --
 -- Indexes for dumped tables
@@ -293,25 +290,25 @@ ALTER TABLE `checkout`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
@@ -323,13 +320,13 @@ ALTER TABLE `user_menu`
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

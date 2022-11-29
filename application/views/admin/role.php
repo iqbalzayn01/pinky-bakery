@@ -1,3 +1,4 @@
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -10,12 +11,12 @@
 
             <?= $this->session->flashdata('message'); ?>
 
-            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newRoleModal">Add New Role</a>
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newRoleModal">Add Role Access</a>
 
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">Id</th>
                         <th scope="col">Role</th>
                         <th scope="col">Action</th>
                     </tr>

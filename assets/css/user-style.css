@@ -30,6 +30,8 @@ h1 {
 .c-topbar {
     background-color: var(--bgColor1);
     border-bottom: var(--borderStyle);
+    display: flex;
+    justify-content: end;
 }
 
 

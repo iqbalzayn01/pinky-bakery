@@ -6,17 +6,7 @@ class Admin_model extends CI_Model
     // Delete Member: Start
     public function deleteMember($id)
     {
-        // $this->db->where('id', $id);
         $this->db->delete('user', ['id' => $id]);
-    }
-    // Delete Member: End
-
-
-    // Delete Member: Start
-    public function deleteOrder($id)
-    {
-        // $this->db->where('id', $id);
-        $this->db->delete('transaksi', ['id' => $id]);
     }
     // Delete Member: End
 
@@ -28,16 +18,5 @@ class Admin_model extends CI_Model
         return $this->db->get('user')->result_array();
     }
 
-
-    // Add Product: Start
-    public function addProduct()
-    {
-        $data = [
-            'nama_produk' => $this->input->post('nama_produk'),
-            'harga' => $this->input->post('harga')
-        ];
-
-        $this->db->insert('produk', $data);
-    }
-    // Add Product: End
 }
+

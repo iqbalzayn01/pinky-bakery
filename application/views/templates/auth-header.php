@@ -21,6 +21,8 @@
     <link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
 
     <link rel="stylesheet" href="<?= base_url('assets/css/main.css'); ?>" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href=<?= base_url('assets/_ref/img/logo1.png'); ?> >
+
 
 </head>
 

@@ -21,6 +21,7 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/main.css'); ?>" rel="stylesheet" >
+    <link rel="icon" type="image/png" sizes="32x32" href=<?= base_url('assets/_ref/img/logo1.png'); ?> >
 
 </head>
 

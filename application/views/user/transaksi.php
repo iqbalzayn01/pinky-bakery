@@ -24,6 +24,8 @@
 						<th scope="col">Email</th>
 						<th scope="col">Nama Produk</th>
 						<th scope="col" style="min-width: 8rem">Kuantitas</th>
+						<th scope="col" >Harga</th>
+						<th scope="col" >Total Harga</th>
 						<th scope="col">Tanggal Transaksi</th>
 						<th scope="col">Keterangan</th>
 						<th scope="col">Aksi</th>
@@ -40,6 +42,8 @@
 						<td><?= $tr['email']; ?></td>
 						<td><?= $tr['nama_produk']; ?></td>
 						<td><?= $tr['kuantitas']; ?></td>
+						<td><?= $tr['harga']; ?></td>
+						<td><?= $tr['total_harga']; ?></td>
 						<td><?= date('d F Y', $tr['tgl_transaksi']); ?></td>
 						<td><?= $tr['keterangan']; ?></td>
 						<td>
