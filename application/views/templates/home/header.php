@@ -15,13 +15,12 @@
     <!-- logo,font,icon link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- logo icon link -->
-    <link rel="icon" type="image/png" sizes="32x32" href=<?= base_url('assets/_ref/img/logo1.png'); ?> >
+    <link rel="icon" type="image/png" sizes="32x32" href=<?= base_url('assets/_ref/img/logo1.png'); ?>>
     <!-- js respon -->
     <script>
-        function respon()
-        {
-            alert("Terimakasih atas Saran dan Komentar Anda :D.")
-        }
+    function respon() {
+        alert("Terimakasih atas Saran dan Komentar Anda :D.")
+    }
     </script>
 </head>
 
@@ -31,7 +30,7 @@
     <header class="header">
         <div class="logoContent">
             <a href="<?= base_url(); ?>" class="logo"><img src="<?= base_url('assets/_ref/img/logo1.png'); ?>"></a>
-            <h1 class="logoName">Co&Cake</h1>
+            <h1 class="logoName">Pinky Bakery</h1>
         </div>
 
         <div class="icon">

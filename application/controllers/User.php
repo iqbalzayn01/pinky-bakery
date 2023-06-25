@@ -16,11 +16,11 @@ class User extends CI_Controller {
         $data['nama_produk'] = $this->Products_model->getProducts();
         $data['produk'] = $this->Products_model->tampil_data()->result();
         
-        $this->load->view("templates/user-header", $data);
-        $this->load->view("templates/user-sidebar", $data);
-        $this->load->view("templates/user-topbar", $data);
+        $this->load->view("templates/user/user-header", $data);
+        $this->load->view("templates/user/user-sidebar", $data);
+        $this->load->view("templates/user/user-topbar", $data);
         $this->load->view("user/index", $data);
-        $this->load->view("templates/user-footer");
+        $this->load->view("templates/user/user-footer");
     }
 
     public function transaksi()
@@ -33,11 +33,11 @@ class User extends CI_Controller {
         $this->form_validation->set_rules('kuantitas', 'kuantitas', 'required|trim');
 
         if($this->form_validation->run() == false) {
-            $this->load->view("templates/user-header", $data);
-            $this->load->view("templates/user-sidebar", $data);
-            $this->load->view("templates/user-topbar", $data);
+            $this->load->view("templates/user/user-header", $data);
+            $this->load->view("templates/user/user-sidebar", $data);
+            $this->load->view("templates/user/user-topbar", $data);
             $this->load->view("user/transaksi", $data);
-            $this->load->view("templates/user-footer");
+            $this->load->view("templates/user/user-footer");
         } else {
             $this->Transaksi_model->addtransaksi();
             $this->session->set_flashdata('checkout', '<div class="alert alert-success" role="alert">Congratulation! your order has been created.</div>');
@@ -63,11 +63,11 @@ class User extends CI_Controller {
         $data["title"] = "My Profile";
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
         
-        $this->load->view("templates/user-header", $data);
-        $this->load->view("templates/user-sidebar", $data);
-        $this->load->view("templates/user-topbar", $data);
+        $this->load->view("templates/user/user-header", $data);
+        $this->load->view("templates/user/user-sidebar", $data);
+        $this->load->view("templates/user/user-topbar", $data);
         $this->load->view("user/profile", $data);
-        $this->load->view("templates/user-footer");
+        $this->load->view("templates/user/user-footer");
     }
     // Profile: End
 

@@ -9,6 +9,7 @@ class Auth extends CI_Controller {
     }
 
 
+    // Login
     public function index()
     {
         if ($this->session->userdata('email')) {

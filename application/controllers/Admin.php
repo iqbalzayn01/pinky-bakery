@@ -16,11 +16,11 @@ class Admin extends CI_Controller {
         $data['nama_produk'] = $this->Products_model->getProducts();
         $data['produk'] = $this->Products_model->tampil_data()->result();
         
-        $this->load->view("templates/menu-header", $data);
-        $this->load->view("templates/sidebar", $data);
-        $this->load->view("templates/topbar", $data);
+        $this->load->view("templates/admin/menu-header", $data);
+        $this->load->view("templates/admin/sidebar", $data);
+        $this->load->view("templates/admin/topbar", $data);
         $this->load->view("admin/index", $data);
-        $this->load->view("templates/menu-footer");
+        $this->load->view("templates/admin/menu-footer");
     }
 
 
@@ -32,11 +32,11 @@ class Admin extends CI_Controller {
 
         $data['name'] = $this->User_model->getAllUserName();
         
-        $this->load->view("templates/menu-header", $data);
-        $this->load->view("templates/sidebar", $data);
-        $this->load->view("templates/topbar", $data);
+        $this->load->view("templates/admin/menu-header", $data);
+        $this->load->view("templates/admin/sidebar", $data);
+        $this->load->view("templates/admin/topbar", $data);
         $this->load->view("admin/df-member", $data);
-        $this->load->view("templates/menu-footer");
+        $this->load->view("templates/admin/menu-footer");
     }
     // Detail Members: End
     
@@ -49,11 +49,11 @@ class Admin extends CI_Controller {
         
         $data['name'] = $this->Admin_model->getAllAdmin();
 
-        $this->load->view("templates/menu-header", $data);
-        $this->load->view("templates/sidebar", $data);
-        $this->load->view("templates/topbar", $data);
+        $this->load->view("templates/admin/menu-header", $data);
+        $this->load->view("templates/admin/sidebar", $data);
+        $this->load->view("templates/admin/topbar", $data);
         $this->load->view('admin/df-admin', $data);
-        $this->load->view("templates/menu-footer");
+        $this->load->view("templates/admin/menu-footer");
     }
     // Daftar Admin: End
 
@@ -66,11 +66,11 @@ class Admin extends CI_Controller {
 
         $data['name'] = $this->User_model->getAllUserName();
         
-        $this->load->view("templates/menu-header", $data);
-        $this->load->view("templates/sidebar", $data);
-        $this->load->view("templates/topbar", $data);
+        $this->load->view("templates/admin/menu-header", $data);
+        $this->load->view("templates/admin/sidebar", $data);
+        $this->load->view("templates/admin/topbar", $data);
         $this->load->view("admin/profile-admin", $data);
-        $this->load->view("templates/menu-footer");
+        $this->load->view("templates/admin/menu-footer");
     }
     // Profile Admin: End
 
@@ -82,11 +82,11 @@ class Admin extends CI_Controller {
         $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
         $data['transaksi'] = $this->Transaksi_model->getTransaksiUser();
         
-        $this->load->view("templates/menu-header", $data);
-        $this->load->view("templates/sidebar", $data);
-        $this->load->view("templates/topbar", $data);
+        $this->load->view("templates/admin/menu-header", $data);
+        $this->load->view("templates/admin/sidebar", $data);
+        $this->load->view("templates/admin/topbar", $data);
         $this->load->view("admin/orders", $data);
-        $this->load->view("templates/menu-footer");
+        $this->load->view("templates/admin/menu-footer");
     }
 
     public function deleteOrder($id)
@@ -109,11 +109,11 @@ class Admin extends CI_Controller {
         $this->form_validation->set_rules('harga', 'Harga', 'required|trim');
 
         if($this->form_validation->run() == false) {
-            $this->load->view("templates/menu-header", $data);
-            $this->load->view("templates/sidebar", $data);
-            $this->load->view("templates/topbar", $data);
+            $this->load->view("templates/admin/menu-header", $data);
+            $this->load->view("templates/admin/sidebar", $data);
+            $this->load->view("templates/admin/topbar", $data);
             $this->load->view("admin/products", $data);
-            $this->load->view("templates/menu-footer");
+            $this->load->view("templates/admin/menu-footer");
         } else {
             $this->Products_model->addProduct();
             $this->session->set_flashdata('nama_produk', '<div class="alert alert-success" role="alert">Congratulation! your order has been created.</div>');
@@ -139,11 +139,11 @@ class Admin extends CI_Controller {
 
         $data['role'] = $this->db->get('user_role')->result_array();
 
-        $this->load->view("templates/menu-header", $data);
-        $this->load->view("templates/sidebar", $data);
-        $this->load->view("templates/topbar", $data);
+        $this->load->view("templates/admin/menu-header", $data);
+        $this->load->view("templates/admin/sidebar", $data);
+        $this->load->view("templates/admin/topbar", $data);
         $this->load->view('admin/role', $data);
-        $this->load->view("templates/menu-footer");
+        $this->load->view("templates/admin/menu-footer");
     }
     // Method Role: End
 
@@ -159,11 +159,11 @@ class Admin extends CI_Controller {
         $this->db->where('id !=', 1);
         $data['menu'] = $this->db->get('user_menu')->result_array();
 
-        $this->load->view("templates/menu-header", $data);
-        $this->load->view("templates/sidebar", $data);
-        $this->load->view("templates/topbar", $data);
+        $this->load->view("templates/admin/menu-header", $data);
+        $this->load->view("templates/admin/sidebar", $data);
+        $this->load->view("templates/admin/topbar", $data);
         $this->load->view('admin/role-access', $data);
-        $this->load->view("templates/menu-footer");
+        $this->load->view("templates/admin/menu-footer");
     }
     // Method Role Access: End
 

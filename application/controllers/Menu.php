@@ -19,11 +19,11 @@ class Menu extends CI_Controller {
         $this->form_validation->set_rules('menu', 'Menu', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view("templates/menu-header", $data);
-            $this->load->view("templates/sidebar", $data);
-            $this->load->view("templates/topbar", $data);
+            $this->load->view("templates/admin/menu-header", $data);
+            $this->load->view("templates/admin/sidebar", $data);
+            $this->load->view("templates/admin/topbar", $data);
             $this->load->view("menu/index", $data);
-            $this->load->view("templates/menu-footer");
+            $this->load->view("templates/admin/menu-footer");
         } else {
             $this->db->insert('user_menu', ['menu' => $this->input->post('menu')]);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New menu added!</div>');
@@ -51,11 +51,11 @@ class Menu extends CI_Controller {
         $this->form_validation->set_rules('icon', 'icon', 'required');
 
         if ($this->form_validation->run() ==  false) {
-            $this->load->view("templates/menu-header", $data);
-            $this->load->view("templates/sidebar", $data);
-            $this->load->view("templates/topbar", $data);
+            $this->load->view("templates/admin/menu-header", $data);
+            $this->load->view("templates/admin/sidebar", $data);
+            $this->load->view("templates/admin/topbar", $data);
             $this->load->view("menu/submenu", $data);
-            $this->load->view("templates/menu-footer");
+            $this->load->view("templates/admin/menu-footer");
         } else {
             $data = [
                 'title' => $this->input->post('title'),

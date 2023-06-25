@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2023 at 01:58 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Jun 25, 2023 at 10:37 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_cocake`
+-- Database: `db_pinky_bakery`
 --
 
 -- --------------------------------------------------------
@@ -37,7 +37,7 @@ CREATE TABLE `checkout` (
   `city` varchar(128) NOT NULL,
   `zip_code` varchar(8) NOT NULL,
   `date_orders` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `checkout`
@@ -60,7 +60,7 @@ CREATE TABLE `produk` (
   `harga` int(11) NOT NULL,
   `stok` int(4) NOT NULL,
   `gambar` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `produk`
@@ -80,6 +80,34 @@ INSERT INTO `produk` (`id`, `nama_produk`, `keterangan`, `harga`, `stok`, `gamba
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `temp`
+--
+
+CREATE TABLE `temp` (
+  `id_temp` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `nama_produk` varchar(100) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `gambar` text NOT NULL,
+  `tgl_pemesanan` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `temp`
+--
+
+INSERT INTO `temp` (`id_temp`, `id_user`, `email`, `id_produk`, `nama_produk`, `harga`, `gambar`, `tgl_pemesanan`) VALUES
+(4, 28, 'pelanggan@gmail.com', 2, 'Red Velvet', 350000, 'redvelvet-cake.jpg', '2023-06-25'),
+(5, 28, 'pelanggan@gmail.com', 3, 'Choco Maltine', 230000, 'chocomaltine-cake.jpg', '2023-06-25'),
+(6, 28, 'pelanggan@gmail.com', 4, 'Klasik Opera', 250000, 'klasikopera-cake.jpg', '2023-06-25'),
+(7, 28, 'pelanggan@gmail.com', 9, 'Vanila Fruit', 230000, 'vanilafruit-cake.jpg', '2023-06-25'),
+(8, 28, 'pelanggan@gmail.com', 1, 'Black Forest', 250000, 'blackforest-cake.jpg', '2023-06-25');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `transaksi`
 --
 
@@ -90,7 +118,7 @@ CREATE TABLE `transaksi` (
   `tgl_transaksi` int(11) NOT NULL,
   `keterangan` varchar(126) DEFAULT NULL,
   `produk_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `transaksi`
@@ -116,18 +144,15 @@ CREATE TABLE `user` (
   `role_id` int(11) NOT NULL,
   `is_active` int(1) NOT NULL,
   `date_created` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(12, 'Super Admin', 'useradmin@gmail.com', 'default-profile.jpg', '$2y$10$eZdRP.gL4vdbbV./qSXbBeu8IKQM8OSB8yUmnN0ijJl7cY.LktljG', 1, 1, 1667801208),
-(14, 'Iqbal Zayyan', 'iqbal01@gmail.com', 'default.jpg', '$2y$10$aksjmd7x3ItUQXzFHNpiSe.ewytqx4jU8UcSxUtx8W61YLrP0qabe', 2, 1, 1667802975),
-(18, 'User Aja', 'user@user.com', 'default.jpg', '$2y$10$3LDWTFADdt1hHDt7TdbC1.vrDPYPpW/SHQRsQNQAvXEx2JPNY0gUC', 2, 1, 1669185422),
-(20, 'Admin', 'admin@admin.com', 'default.jpg', '$2y$10$getT1MaCddjmyiOGc.87tuwJKokM7TFXyzxbvDJcxz7LCEGION7eG', 1, 1, 1669343100),
-(26, 'Coding', 'coding@gmail.com', 'default.jpg', '$2y$10$oqZ8MP1VHnMy58JXfQkykOb/hsTET5JNnyCkYVBhB/nWXalJmjY6W', 1, 1, 1669699520);
+(27, 'Admin', 'admin@gmail.com', 'default.jpg', '$2y$10$vH9okU45UXZG5HlsCJdSyudCdsZCbbZGy8rFmr4Ia6sPp5v82iFxi', 1, 1, 1687661004),
+(28, 'Pelanggan', 'pelanggan@gmail.com', 'default.jpg', '$2y$10$ycCJIiNmLltXdStWcun8eOvJlJnsfzBmqCsdb7i3u9gWHsD4Vs3zO', 2, 1, 1687665498);
 
 -- --------------------------------------------------------
 
@@ -139,7 +164,7 @@ CREATE TABLE `user_access_menu` (
   `id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user_access_menu`
@@ -160,7 +185,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 CREATE TABLE `user_menu` (
   `id` int(11) NOT NULL,
   `menu` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user_menu`
@@ -180,7 +205,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 CREATE TABLE `user_role` (
   `id` int(11) NOT NULL,
   `role` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user_role`
@@ -203,7 +228,7 @@ CREATE TABLE `user_sub_menu` (
   `url` varchar(128) NOT NULL,
   `icon` varchar(128) NOT NULL,
   `is_active` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `user_sub_menu`
@@ -223,7 +248,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (12, 1, 'Products', 'admin/products', 'fas fa-fw fa-birthday-cake', 1),
 (13, 1, 'Orders', 'admin/orders', 'fas fa-fw fa-inbox', 1),
 (14, 2, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1),
-(15, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1);
+(15, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1),
+(20, 2, 'Cart', 'pemesanan/cart', '-', 1);
 
 --
 -- Indexes for dumped tables
@@ -240,6 +266,12 @@ ALTER TABLE `checkout`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `temp`
+--
+ALTER TABLE `temp`
+  ADD PRIMARY KEY (`id_temp`);
 
 --
 -- Indexes for table `transaksi`
@@ -294,6 +326,12 @@ ALTER TABLE `produk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT for table `temp`
+--
+ALTER TABLE `temp`
+  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
@@ -303,7 +341,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
@@ -327,7 +365,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
