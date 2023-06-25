@@ -52,7 +52,9 @@ class Pemesanan extends CI_Controller {
             $this->session->set_flashdata('message', '<div class="alert alert-massege alert-danger" role="alert">Tidak ada product dikeranjang</div>');
             redirect(base_url());
         } else {
-            $data['temp'] = $this->db->query("select id_produk, nama_produk, harga, gambar, tgl_pemesanan, from temp where id_user='$id_user'")->result_array();
+            $this->db->where('id_user', $id_user);
+            $query = $this->db->get('temp');
+            $data['temp'] = $query->result_array();
         }
         
         $this->load->view("templates/user/user-header", $data);

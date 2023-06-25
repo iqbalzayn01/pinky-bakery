@@ -20,6 +20,7 @@
                 <thead>
                     <tr>
                         <th scope="col">No</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Nama Produk</th>
                         <th scope="col">Harga</th>
                         <th scope="col">Tanggal Pemesanan</th>
@@ -30,9 +31,10 @@
                     <?php foreach ($temp as $tm) : ?>
                     <tr>
                         <th scope="row"><?= $i; ?></th>
+                        <td><?= $tm['email']; ?></td>
                         <td><?= $tm['nama_produk']; ?></td>
                         <td><?= $tm['harga']; ?></td>
-                        <td><?= date('d F Y', $tr['tgl_pemesanan']); ?></td>
+                        <td><?= $tm['tgl_pemesanan']; ?></td>
                         <td>
                             <ul class="list-group">
                                 <li class="" style="list-style: none;">
