@@ -95,4 +95,14 @@ class Pemesanan_model extends CI_Model
         
         return $no_pemesanan;
     }
+
+    public function deleteTempItem($id_temp)
+    {
+        $this->db->delete('temp', ['id_temp' => $id_temp]);
+    }
+
+    public function getlaporan()
+    {
+        return $this->db->get('detail_pemesanan')->result_array();
+    }   
 }

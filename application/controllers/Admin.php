@@ -201,4 +201,47 @@ class Admin extends CI_Controller {
     }
     // Method Delete Member: End
 
+
+    public function laporanPenjualan()
+    {
+        $data["title"] = "Laporan Penjualan";
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        $data['detail_pemesanan'] = $this->Pemesanan_model->getLaporan();
+        
+        $this->load->view("templates/admin/menu-header", $data);
+        $this->load->view("templates/admin/sidebar", $data);
+        $this->load->view("templates/admin/topbar", $data);
+        $this->load->view("admin/laporan-penjualan", $data);
+        $this->load->view("templates/admin/menu-footer");
+    }
+
+    // Export To PDF Pembayaran
+    public function exportLaporanToPdf()
+    {
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        $id_user = $data['user']['id'];
+        $data['title'] = "Laporan Penjualan";
+        $data["detail_pemesanan"] = $this->Pemesanan_model->getLaporan();
+
+        // Load library PDF
+        $this->load->library('pdf');
+
+        // Load view buktibayar-pdf
+        $html = $this->load->view('admin/laporan-penjualan-pdf', $data, true);
+
+        // Convert to PDF
+        $this->pdf->load_html($html);
+        $this->pdf->render();
+        $output = $this->pdf->output();
+
+        // Set nama file dan tampilkan PDF
+        $filename = "bukti-bayar-$id_user.pdf";
+        file_put_contents($filename, $output);
+        header('Content-Type: application/pdf');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        header('Content-Length: ' . filesize($filename));
+        readfile($filename);
+        unlink($filename);
+    }
+
 }

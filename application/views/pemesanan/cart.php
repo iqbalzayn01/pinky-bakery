@@ -24,6 +24,7 @@
                         <th scope="col">Jumlah</th>
                         <th scope="col">Subtotal</th>
                         <th scope="col">Tanggal Pemesanan</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,7 @@
                         } else {
                             // Jika nama_produk belum ada, tambahkan ke array $data_produk
                             $data_produk[] = [
+                                'id_temp' => $row['id_temp'],
                                 'email' => $row['email'],
                                 'nama_produk' => $row['nama_produk'],
                                 'harga' => $row['harga'],
@@ -50,7 +52,7 @@
                             ];
                         }
                         $total += $row['harga'];
-                        ?>
+                    ?>
                     <?php endforeach; ?>
                     <?php foreach ($data_produk as $produk) : ?>
                     <tr>
@@ -64,7 +66,8 @@
                         <td>
                             <ul class="list-group">
                                 <li class="" style="list-style: none;">
-                                    <a href="#" class="badge badge-danger float-right tombol-hapus">hapus</a>
+                                    <a href="<?= base_url('pemesanan/deleteCartItem/') . $produk['id_temp']; ?>"
+                                        class="badge badge-danger float-right tombol-hapus">hapus</a>
                                 </li>
                             </ul>
                         </td>
@@ -116,7 +119,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="alamat_kirim">Nama</label>
+                        <label for="alamat_kirim">Alamat Kirim</label>
                         <input type="text" class="form-control" id="alamat_kirim" name="alamat_kirim"
                             placeholder="Alamat Kirim" required>
                     </div>

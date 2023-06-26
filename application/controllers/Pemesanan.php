@@ -207,40 +207,45 @@ class Pemesanan extends CI_Controller {
     //     redirect(base_url() . 'user');
     // }
 
-public function bayar()
-{
-    $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
-    $id_user = $data['user']['id'];
-    $data["pembayaran"] = $this->Pemesanan_model->getJoinedData($id_user);
+    public function bayar()
+    {
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        $id_user = $data['user']['id'];
+        $data["pembayaran"] = $this->Pemesanan_model->getJoinedData($id_user);
 
-    // Save data to the 'laporan' table
-    foreach ($data["pembayaran"] as $row) {
-        $harga = isset($row['harga']) ? $row['harga'] : 0; // Set default value of 0 if 'harga' is undefined
-        $jumlah = isset($row['jumlah']) ? $row['jumlah'] : 1; // Set default value of 1 if 'jumlah' is undefined
-        $subtotal = $harga * $jumlah;
+        // Save data to the 'laporan' table
+        foreach ($data["pembayaran"] as $row) {
+            $harga = isset($row['harga']) ? $row['harga'] : 0; // Set default value of 0 if 'harga' is undefined
+            $jumlah = isset($row['jumlah']) ? $row['jumlah'] : 1; // Set default value of 1 if 'jumlah' is undefined
+            $subtotal = $harga * $jumlah;
 
-        $data = array(
-            'no_pemesanan' => $row['no_pemesanan'],
-            'name' => $row['name'],
-            'email' => $row['email'],
-            'nama_produk' => $row['nama_produk'],
-            'harga' => $harga,
-            'jumlah' => $jumlah,
-            'subtotal' => $subtotal,
-            'tgl_pemesanan' => $row['tgl_pemesanan']
-        );
+            $data = array(
+                'no_pemesanan' => $row['no_pemesanan'],
+                'name' => $row['name'],
+                'email' => $row['email'],
+                'nama_produk' => $row['nama_produk'],
+                'harga' => $harga,
+                'jumlah' => $jumlah,
+                'subtotal' => $subtotal,
+                'tgl_pemesanan' => $row['tgl_pemesanan']
+            );
 
-        $this->db->insert('detail_pemesanan', $data);
+            $this->db->insert('detail_pemesanan', $data);
+        }
+
+        $this->Pemesanan_model->deleteData('pemesanan');
+        $this->Pemesanan_model->deleteData('temp');
+
+        redirect(base_url() . 'user');
     }
 
-    $this->Pemesanan_model->deleteData('pemesanan');
-    $this->Pemesanan_model->deleteData('temp');
 
-    redirect(base_url() . 'user');
-}
-
-
-
+    public function deleteCartItem($id_temp)
+    {
+        $this->Pemesanan_model->deleteTempItem($id_temp);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+        redirect('pemesanan/cart');
+    }
 
 
 }
