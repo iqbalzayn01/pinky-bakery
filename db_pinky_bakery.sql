@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2023 at 10:37 AM
+-- Generation Time: Jun 26, 2023 at 07:38 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -24,28 +24,56 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `checkout`
+-- Table structure for table `detail_pemesanan`
 --
 
-CREATE TABLE `checkout` (
+CREATE TABLE `detail_pemesanan` (
   `id` int(11) NOT NULL,
-  `orders` varchar(128) NOT NULL,
+  `no_pemesanan` char(10) NOT NULL,
+  `name` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
-  `name` varchar(256) NOT NULL,
-  `address` varchar(256) NOT NULL,
-  `districts` varchar(128) NOT NULL,
-  `city` varchar(128) NOT NULL,
-  `zip_code` varchar(8) NOT NULL,
-  `date_orders` int(11) NOT NULL
+  `nama_produk` varchar(100) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `subtotal` int(11) NOT NULL,
+  `tgl_pemesanan` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `checkout`
+-- Dumping data for table `detail_pemesanan`
 --
 
-INSERT INTO `checkout` (`id`, `orders`, `email`, `name`, `address`, `districts`, `city`, `zip_code`, `date_orders`) VALUES
-(2, 'Black Forest', 'alexa@gmail.com', 'Alexa', 'karadenan, Cibinong, Bogor', 'Cibinong', 'Bogor', '16913', 1668347922),
-(3, 'Choco Devila', 'edo@gmail.com', 'Edo Edo', 'Galur, Senen, Jakarta Pusat', 'Cibinong', 'Jakarta', '123321', 1668348636);
+INSERT INTO `detail_pemesanan` (`id`, `no_pemesanan`, `name`, `email`, `nama_produk`, `harga`, `jumlah`, `subtotal`, `tgl_pemesanan`) VALUES
+(1, 'BED39FGD6A', 'Pelanggan', 'pelanggan@gmail.com', 'Coklat Regal', 150000, 1, 150000, '2023-06-26'),
+(2, 'BED39FGD6A', 'Pelanggan', 'pelanggan@gmail.com', 'Coklat Regal', 150000, 1, 150000, '2023-06-26'),
+(3, 'BED39FGD6A', 'Pelanggan', 'pelanggan@gmail.com', 'Red Velvet', 350000, 1, 350000, '2023-06-26'),
+(4, 'BED39FGD6A', 'Pelanggan', 'pelanggan@gmail.com', 'Klasik Opera', 250000, 1, 250000, '2023-06-26'),
+(5, 'BED39FGD6A', 'Pelanggan', 'pelanggan@gmail.com', 'Choco Maltine', 230000, 1, 230000, '2023-06-26'),
+(6, 'BED39FGD6A', 'Pelanggan', 'pelanggan@gmail.com', 'Coklat Regal', 150000, 1, 150000, '2023-06-26'),
+(7, 'P1E2AHMSXW', 'Pelanggan', 'pelanggan@gmail.com', 'Coklat Regal', 150000, 1, 150000, '2023-06-26'),
+(8, 'P1E2AHMSXW', 'Pelanggan', 'pelanggan@gmail.com', 'Coklat Regal', 150000, 1, 150000, '2023-06-26'),
+(9, 'P1E2AHMSXW', 'Pelanggan', 'pelanggan@gmail.com', 'Red Velvet', 350000, 1, 350000, '2023-06-26'),
+(10, 'P1E2AHMSXW', 'Pelanggan', 'pelanggan@gmail.com', 'Klasik Opera', 250000, 1, 250000, '2023-06-26'),
+(11, 'P1E2AHMSXW', 'Pelanggan', 'pelanggan@gmail.com', 'Choco Maltine', 230000, 1, 230000, '2023-06-26'),
+(12, 'P1E2AHMSXW', 'Pelanggan', 'pelanggan@gmail.com', 'Coklat Regal', 150000, 1, 150000, '2023-06-26'),
+(13, 'GOQVE73LVU', 'Admin', 'admin@gmail.com', 'Black Forest', 250000, 1, 250000, '2023-06-26'),
+(14, 'GOQVE73LVU', 'Admin', 'admin@gmail.com', 'Red Velvet', 350000, 1, 350000, '2023-06-26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pemesanan`
+--
+
+CREATE TABLE `pemesanan` (
+  `id` int(11) NOT NULL,
+  `no_pemesanan` char(10) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `tgl_pemesanan` date NOT NULL,
+  `alamat_kirim` varchar(85) NOT NULL,
+  `no_telp` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -93,17 +121,6 @@ CREATE TABLE `temp` (
   `gambar` text NOT NULL,
   `tgl_pemesanan` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `temp`
---
-
-INSERT INTO `temp` (`id_temp`, `id_user`, `email`, `id_produk`, `nama_produk`, `harga`, `gambar`, `tgl_pemesanan`) VALUES
-(4, 28, 'pelanggan@gmail.com', 2, 'Red Velvet', 350000, 'redvelvet-cake.jpg', '2023-06-25'),
-(5, 28, 'pelanggan@gmail.com', 3, 'Choco Maltine', 230000, 'chocomaltine-cake.jpg', '2023-06-25'),
-(6, 28, 'pelanggan@gmail.com', 4, 'Klasik Opera', 250000, 'klasikopera-cake.jpg', '2023-06-25'),
-(7, 28, 'pelanggan@gmail.com', 9, 'Vanila Fruit', 230000, 'vanilafruit-cake.jpg', '2023-06-25'),
-(8, 28, 'pelanggan@gmail.com', 1, 'Black Forest', 250000, 'blackforest-cake.jpg', '2023-06-25');
 
 -- --------------------------------------------------------
 
@@ -174,7 +191,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
 (7, 1, 3),
 (14, 2, 2),
-(26, 1, 2);
+(26, 1, 2),
+(27, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -194,7 +212,8 @@ CREATE TABLE `user_menu` (
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
 (1, 'Admin'),
 (2, 'User'),
-(3, 'Menu');
+(3, 'Menu'),
+(5, 'Laporan');
 
 -- --------------------------------------------------------
 
@@ -249,16 +268,23 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (13, 1, 'Orders', 'admin/orders', 'fas fa-fw fa-inbox', 1),
 (14, 2, 'Edit Profile', 'user/edit', 'fas fa-fw fa-user-edit', 1),
 (15, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1),
-(20, 2, 'Cart', 'pemesanan/cart', '-', 1);
+(20, 2, 'Cart', 'pemesanan/cart', 'fas fa-shopping-cart', 1),
+(23, 5, 'Laporan Penjualan', 'laporan/laporanPenjualan', 'fas fa-fw fa-book', 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `checkout`
+-- Indexes for table `detail_pemesanan`
 --
-ALTER TABLE `checkout`
+ALTER TABLE `detail_pemesanan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pemesanan`
+--
+ALTER TABLE `pemesanan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -314,10 +340,16 @@ ALTER TABLE `user_sub_menu`
 --
 
 --
--- AUTO_INCREMENT for table `checkout`
+-- AUTO_INCREMENT for table `detail_pemesanan`
 --
-ALTER TABLE `checkout`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `detail_pemesanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `pemesanan`
+--
+ALTER TABLE `pemesanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `produk`
@@ -329,7 +361,7 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `temp`
 --
 ALTER TABLE `temp`
-  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
@@ -347,13 +379,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -365,7 +397,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
