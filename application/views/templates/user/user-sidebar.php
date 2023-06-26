@@ -6,7 +6,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-cookie"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Co'Cake</div>
+                <div class="sidebar-brand-text mx-3">Pinky Bakery</div>
             </a>
 
             <!-- Divider -->

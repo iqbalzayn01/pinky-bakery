@@ -49,8 +49,8 @@ class Pemesanan extends CI_Controller {
         $dtb = $this->Pemesanan_model->showtemp(['id_user' => $id_user])->num_rows();
 
         if ($dtb < 1) {
-            $this->session->set_flashdata('message', '<div class="alert alert-massege alert-danger" role="alert">Tidak ada product dikeranjang</div>');
-            redirect(base_url());
+            $this->session->set_flashdata('message', '<div class="alert alert-massege alert-danger" role="alert">There are no products in the shopping cart.</div>');
+            redirect(base_url() . 'user');
         } else {
             $this->db->where('id_user', $id_user);
             $query = $this->db->get('temp');
@@ -64,4 +64,147 @@ class Pemesanan extends CI_Controller {
         $this->load->view("templates/user/user-footer");
         
     }
+
+    // Checkout
+    public function checkout()
+    {
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        $id_user = $data['user']['id'];
+        $data["temp"] = $this->db->get_where('temp', ['id_user' => $id_user])->result_array();
+
+        $data_produk = array();
+        $total = 0;
+        foreach ($data["temp"] as $row) {
+            // Mengecek apakah nama_produk sudah ada di array $data_produk
+            $index = array_search($row['nama_produk'], array_column($data_produk, 'nama_produk'));
+            if ($index !== false) {
+                // Jika nama_produk sudah ada, tambahkan jumlah dan update subtotal
+                $data_produk[$index]['jumlah'] += 1;
+                $data_produk[$index]['subtotal'] += $row['harga'];
+            } else {
+                // Jika nama_produk belum ada, tambahkan ke array $data_produk
+                $data_produk[] = [
+                    'nama_produk' => $row['nama_produk'],
+                    'harga' => $row['harga'],
+                    'jumlah' => 1,
+                    'subtotal' => $row['harga'],
+                    'tgl_pemesanan' => $row['tgl_pemesanan']
+                ];
+            }
+            $total += $row['harga'];
+        }
+
+        // Ambil data dari formulir checkout
+        $nama = $this->input->post('nama');
+        $no_telp = $this->input->post('no_telp');
+        $alamat_kirim = $this->input->post('alamat_kirim');
+
+        // Simpan data ke dalam tabel pemesanan
+        $data_pemesanan = [
+            'no_pemesanan' => $this->Pemesanan_model->generateNoPemesanan(),
+            'id_user' => $id_user,
+            'total' => $total,
+            'tgl_pemesanan' => date('Y-m-d H:i:s'),
+            'alamat_kirim' => $alamat_kirim,
+            'no_telp' => $no_telp,
+            // tambahkan kolom-kolom lain yang perlu disimpan
+        ];
+
+        $this->db->insert('pemesanan', $data_pemesanan);
+        redirect(base_url() . 'pemesanan/pembayaran');
+    }
+
+    // Pembayaran
+    public function pembayaran() 
+    {
+        // $data["title"] = "Pembayaran";
+        // $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        // $id_user = $data['user']['id'];
+        // $data["pemesanan"] = $this->Pemesanan_model->getPemesanan();
+        // $data["produk"] = $this->db->get('produk')->result_array();
+        // $data["pembayaran"] = array();
+
+        // foreach ($data["produk"] as $produk) {
+        //     $id_produk = $produk["id"];
+        //     $pembayaran = $this->Pemesanan_model->getJoinedData($id_user, $id_produk);
+        //     $data["pembayaran"] = array_merge($data["pembayaran"], $pembayaran);
+        // }
+
+        $data["title"] = "Pembayaran";
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        $data["pemesanan"] = $this->db->get('pemesanan')->row_array();
+        $id_user = $data['user']['id'];
+        $data["pembayaran"] = $this->Pemesanan_model->getJoinedData($id_user);
+
+        $this->load->view("templates/user/user-header", $data);
+        $this->load->view("templates/user/user-sidebar", $data);
+        $this->load->view("templates/user/user-topbar", $data);
+        $this->load->view("pemesanan/pembayaran", $data);
+        $this->load->view("templates/user/user-footer");
+    }
+
+    // Export To PDF Pembayaran
+    public function exportToPdf()
+    {
+        $data["user"] = $this->db->get_where("user", ["email" => $this->session->userdata("email")])->row_array();
+        $id_user = $data['user']['id'];
+        $data['title'] = "Cetak Bukti Pembayaran";
+        $data["pemesanan"] = $this->db->get('pemesanan')->row_array();
+        $data["pembayaran"] = $this->Pemesanan_model->getJoinedData($id_user);
+        $data_produk = array();
+        $total = 0;
+
+        foreach ($data["pembayaran"] as $row) {
+            $index = array_search($row['nama_produk'], array_column($data_produk, 'nama_produk'));
+            if ($index !== false) {
+                $data_produk[$index]['jumlah'] += 1;
+                $data_produk[$index]['subtotal'] += $row['harga'];
+            } else {
+                $data_produk[] = [
+                    'no_pemesanan' => $row['no_pemesanan'],
+                    'name' => $row['name'],
+                    'email' => $row['email'],
+                    'nama_produk' => $row['nama_produk'],
+                    'harga' => $row['harga'],
+                    'jumlah' => 1,
+                    'subtotal' => $row['harga'],
+                    'tgl_pemesanan' => $row['tgl_pemesanan']
+                ];
+            }
+            $total += $row['harga'];
+        }
+
+        $data['data_produk'] = $data_produk;
+        $data['total'] = $total;
+
+        // Load library PDF
+        $this->load->library('pdf');
+
+        // Load view buktibayar-pdf
+        $html = $this->load->view('pemesanan/buktibayar-pdf', $data, true);
+
+        // Convert to PDF
+        $this->pdf->load_html($html);
+        $this->pdf->render();
+        $output = $this->pdf->output();
+
+        // Set nama file dan tampilkan PDF
+        $filename = "bukti-bayar-$id_user.pdf";
+        file_put_contents($filename, $output);
+        header('Content-Type: application/pdf');
+        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        header('Content-Length: ' . filesize($filename));
+        readfile($filename);
+        unlink($filename);
+    }
+
+
+
+    public function bayar() 
+    {
+        $this->Pemesanan_model->deleteData('temp');
+        
+        redirect(base_url() . 'user');
+    }
+
 }
